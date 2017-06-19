@@ -7,9 +7,9 @@
     <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
     <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css" media="all" />
 
+    <script src="<c:url value = "resources/js/jquery-3.2.1.js" />"></script>
     <script src="<c:url value = "resources/js/bootstrap.js" />"></script>
-    <script src="<c:url value = "resources/js/jquery.min.js" />"></script>
-    <script src="<c:url value = "resources/js/script.js" />"></script>
+    <%--<script src="<c:url value = "resources/js/script.js" />"></script>--%>
     <script src="<c:url value = "resources/js/superfish.js" />"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -59,9 +59,9 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <form role="form" data-toggle="validator" method="POST" action="/register" modelAttribute="customerData" class="form-horizontal" id="submitForm">
-                                <fieldset>
+                            <form role="form" data-toggle="validator" method="POST" action="/register" modelAttribute="customerData" class="form-horizontal" id="submitForm" >
 
+                                <fieldset>
                                     <!-- Form Name -->
                                     <legend>Registration</legend>
 
@@ -105,11 +105,45 @@
                                         </div>
                                     </div>
 
+                                    <%--Re-Type password--%>
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="retypePassword">Re-type Password</label>
                                         <div class="col-md-6">
-                                            <input id="retypepassword" type="password" class="form-control" id="retypePassword" data-match="#password" data-match-error="Whoops, these don't match" placeholder="Confirm">
-                                            <%--<input id="retypePassword" name="retypePassword" type="password" placeholder="Password Again" class="form-control input-md" />--%>
+                                            <input type="password" class="form-control" id="retypePassword" placeholder="Confirm Password"  oninput="checkPass(this)" required="">
+                                            <span id="confirmMessage" class="confirmMessage"></span>
+                                            <script language='javascript' type='text/javascript'>
+                                                function checkPass(input)
+                                                {
+                                                    //Store the password field objects into variables ...
+                                                    var pass1 = document.getElementById('customerData.customerDataString.password');
+                                                    var pass2 = document.getElementById('retypePassword');
+
+                                                    //Store the Confimation Message Object ...
+                                                    var message = document.getElementById('confirmMessage');
+                                                    //Set the colors we will be using ...
+                                                    var goodColor = "#66cc66";
+                                                    var badColor = "#ff6666";
+                                                    //Compare the values in the password field
+                                                    //and the confirmation field
+                                                    if(pass1.value == pass2.value){
+                                                        //The passwords match.
+                                                        //Set the color to the good color and inform
+                                                        //the user that they have entered the correct password
+                                                        pass2.style.backgroundColor = goodColor;
+                                                        message.style.color = goodColor;
+                                                        message.innerHTML = "Passwords Match!"
+                                                        input.setCustomValidity('');
+                                                    }else{
+                                                        //The passwords do not match.
+                                                        //Set the color to the bad color and
+                                                        //notify the user.
+                                                        pass2.style.backgroundColor = badColor;
+                                                        message.style.color = badColor;
+                                                        message.innerHTML = "Passwords Do Not Match!"
+                                                        input.setCustomValidity('Password Must be Matching.');
+                                                    }
+                                                }
+                                            </script>
                                         </div>
                                     </div>
 
@@ -150,9 +184,9 @@
                                             <button id="Button Submit" name="Button Submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>
-
                                 </fieldset>
                             </form>
+
 
                         </div>
                         <div class="header-para">

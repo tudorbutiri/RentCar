@@ -4,12 +4,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import rentcar.dto.CustomerDataDTO;
 import rentcar.facade.CustomerFullDetailsFacade;
 import rentcar.facade.LoginUserFacade;
+import rentcar.utils.LoginCredentialsValidator;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +28,14 @@ public class LoginController
     @Autowired
     LoginUserFacade loginUserFacade;
 
+    @Autowired
+    LoginCredentialsValidator loginCredentialsValidator;
+
+    @InitBinder
+    private void initBinder(WebDataBinder binder){
+        binder.setValidator(loginCredentialsValidator);
+    }
+
     @RequestMapping(value="/login" , method = RequestMethod.GET)
     public ModelAndView getLogin()
     {
@@ -34,8 +46,18 @@ public class LoginController
     }
 
     @RequestMapping(value="/login" , method = RequestMethod.POST)
-    public void postLogin(@ModelAttribute("loginData") CustomerDataDTO customerDataDTO)
+    public String postLogin(@ModelAttribute("loginData") @Valid CustomerDataDTO customerDataDTO, BindingResult result)
     {
-        loginUserFacade.checkCustomerLoginData(customerDataDTO);
+        if(result.hasErrors())
+        {
+            return "login";
+        }
+        else
+        {
+            //return success page
+            return loginUserFacade.checkCustomerLoginData(customerDataDTO);
+
+
+        }
     }
 }

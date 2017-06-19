@@ -31,7 +31,6 @@ public class RegisterController{
         map.put("customerDataString", new CustomerDataDTO());
         map.put("customerAddressDataString", new CustomerAddressDataDTO());
 
-        //return new ModelAndView("welcomePage", "model", model);
         return new ModelAndView("register", "customerData", map);
     }
 

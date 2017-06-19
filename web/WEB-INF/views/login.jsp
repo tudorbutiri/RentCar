@@ -7,9 +7,8 @@
     <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
     <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css" media="all" />
 
+    <script src="<c:url value = "resources/js/jquery-3.2.1.js" />"></script>
     <script src="<c:url value = "resources/js/bootstrap.js" />"></script>
-    <script src="<c:url value = "resources/js/jquery.min.js" />"></script>
-    <script src="<c:url value = "resources/js/script.js" />"></script>
     <script src="<c:url value = "resources/js/superfish.js" />"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -68,35 +67,43 @@
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerDataString.email">Email</label>
+                                        <label class="col-md-4 control-label" for="loginData.customerDataString.email">Email</label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerDataString.email" name="email" type="text" placeholder="Email" class="form-control input-md" required="" />
+                                            <form:input id="loginData.customerDataString.email" name="email" type="text" placeholder="Email" class="form-control input-md" path="loginData.email"/>
+                                            <form:errors path="loginData.email"/>
                                         </div>
                                     </div>
 
                                     <!-- Password input-->
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerDataString.password">Password</label>
+                                        <label class="col-md-4 control-label" for="loginData.customerDataString.password">Password</label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerDataString.password" name="password" type="password" placeholder="Enter Password" class="form-control" required=""/>
+                                            <input id="loginData.customerDataString.password" name="password" type="password" placeholder="Enter Password" class="form-control"/>
+                                            <form:errors name="password" />
                                         </div>
                                     </div>
 
 
-                                    <!-- Button -->
+                                    <!-- Log in Button -->
                                     <div class="form-group">
-                                    <label class="col-md-4 control-label" for="Button Submit"></label>
-                                    <div class="col-md-4">
-                                        <button id="Button Submit" name="Button Submit" class="btn btn-success">Submit</button>
+                                        <label class="col-md-6 control-label" for="Button Submit"></label>
+                                            <div class="col-md-4">
+                                                <button id="Button Submit" name="Button Submit" class="btn btn-success">Log In</button>
+                                            </div>
                                     </div>
 
                                     <div class="form-group">
-                                    <label class="col-md-4 control-label" for="Button Submit"></label>
-                                    <div class="col-md-4">
-                                        <button id="Button Submit" name="Button Submit" class="btn btn-success">Submit</button>
+                                        <label class="col-md-4 control-label" for="Button Submit"></label>
+                                        <div class="col-md-6">
+                                            <span class='text-center'><a href="/resetting/request" class="text-sm">Forgot Password?</a></span>
+                                            <a href="/register" class="col-md-7">Create an account</a>
+                                        </div>
                                     </div>
+
+                                    <div class="form-group">
+
                                     </div>
-                                </div>
+
 
                                 </fieldset>
                             </form>

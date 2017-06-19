@@ -3,7 +3,7 @@ package rentcar.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rentcar.data.CustomerData;
-import rentcar.utils.CheckLoginCredentials;
+import rentcar.utils.LoginCredentialsValidator;
 
 @Service
 public class LoginUserService {
@@ -13,7 +13,7 @@ public class LoginUserService {
     AddCustomerDataService addCustomerDataService;
 
     @Autowired
-    CheckLoginCredentials checkLoginCredentials;
+    LoginCredentialsValidator checkLoginCredentials;
 
     public String checkLoginRegistrationCredentials(CustomerData customerData)
     {
