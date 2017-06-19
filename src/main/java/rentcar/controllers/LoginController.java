@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import rentcar.dto.CustomerDataDTO;
 import rentcar.facade.CustomerFullDetailsFacade;
@@ -31,7 +34,7 @@ public class LoginController
     @Autowired
     LoginCredentialsValidator loginCredentialsValidator;
 
-    @InitBinder
+    @InitBinder()
     private void initBinder(WebDataBinder binder){
         binder.setValidator(loginCredentialsValidator);
     }
@@ -39,10 +42,10 @@ public class LoginController
     @RequestMapping(value="/login" , method = RequestMethod.GET)
     public ModelAndView getLogin()
     {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("customerDataString", new CustomerDataDTO());
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        map.put("customerDataString", new CustomerDataDTO());
 
-        return new ModelAndView("login", "loginData", map);
+        return new ModelAndView("login", "loginData", new CustomerDataDTO());
     }
 
     @RequestMapping(value="/login" , method = RequestMethod.POST)
@@ -54,10 +57,7 @@ public class LoginController
         }
         else
         {
-            //return success page
             return loginUserFacade.checkCustomerLoginData(customerDataDTO);
-
-
         }
     }
 }

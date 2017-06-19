@@ -32,11 +32,11 @@ public class LoginCredentialsValidator implements Validator{
 
     public void validateLoginFields(CustomerDataDTO customerDataDTO, Errors errors)
     {
-        if (customerDataDTO.getEmail()==null)
+        if (customerDataDTO.getEmail().isEmpty())
         {
-            errors.rejectValue("loginData.customerDataString.email", "login.email.fail");
+            errors.rejectValue("email", "login.email.fail");
         }
-        if (customerDataDTO.getPassword()==null)
+        if (customerDataDTO.getPassword().isEmpty())
         {
             errors.rejectValue("password", "login.password.fail");
         }
@@ -44,6 +44,10 @@ public class LoginCredentialsValidator implements Validator{
 
     public String checkLoginData(CustomerData customerData, CustomerData customerDataDB)
     {
+        if (customerDataDB.getEmail()==null)
+        {
+            return messageSource.getMessage("login.succesfull", null, Locale.getDefault());
+        }
         if ((customerData.getEmail() != customerDataDB.getEmail()) || (customerData.getPassword() != customerDataDB.getPassword()))
         {
             return messageSource.getMessage("login.fail", null, Locale.getDefault());

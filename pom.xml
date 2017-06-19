@@ -33,7 +33,6 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -147,9 +146,8 @@
             <classifier/>
         </dependency>
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
             <version>4.1.0.Final</version>
             <classifier/>
             <exclusions>
@@ -163,11 +161,10 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
+            <version>1.0.0.GA</version>
             <classifier/>
         </dependency>
         <dependency>
@@ -194,21 +191,6 @@
             <version>${org.springframework-version}</version>
             <classifier/>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>3.3.7</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-
 
         <dependency>
             <groupId>commons-pool</groupId>

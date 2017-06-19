@@ -67,19 +67,19 @@
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="loginData.customerDataString.email">Email</label>
+                                        <label class="col-md-4 control-label" for="email">Email</label>
                                         <div class="col-md-6">
-                                            <form:input id="loginData.customerDataString.email" name="email" type="text" placeholder="Email" class="form-control input-md" path="loginData.email"/>
+                                            <form:input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" path="loginData.email"/>
                                             <form:errors path="loginData.email"/>
                                         </div>
                                     </div>
 
                                     <!-- Password input-->
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="loginData.customerDataString.password">Password</label>
+                                        <label class="col-md-4 control-label" for="password">Password</label>
                                         <div class="col-md-6">
-                                            <input id="loginData.customerDataString.password" name="password" type="password" placeholder="Enter Password" class="form-control"/>
-                                            <form:errors name="password" />
+                                            <form:input id="password" name="password" type="password" placeholder="Enter Password" class="form-control" path="loginData.password"/>
+                                            <form:errors path="loginData.password"/>
                                         </div>
                                     </div>
 
@@ -88,7 +88,7 @@
                                     <div class="form-group">
                                         <label class="col-md-6 control-label" for="Button Submit"></label>
                                             <div class="col-md-4">
-                                                <button id="Button Submit" name="Button Submit" class="btn btn-success">Log In</button>
+                                                <button id="Button Submit" name="Button Submit" class="btn btn-success" type="submit">Log In</button>
                                             </div>
                                     </div>
 
