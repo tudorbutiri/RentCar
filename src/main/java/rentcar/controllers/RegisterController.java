@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +18,7 @@ import rentcar.dto.CustomerAddressDataDTO;
 import rentcar.dto.CustomerDataDTO;
 import rentcar.facade.CustomerFullDetailsFacade;
 import rentcar.services.AddCustomerDataService;
+import rentcar.utils.CustomerDataLoginValidator;
 import rentcar.utils.LoginCredentialsValidator;
 
 import javax.validation.Valid;
@@ -38,6 +40,9 @@ public class RegisterController{
     @Autowired
     LoginCredentialsValidator loginCredentialsValidator;
 
+    @Autowired
+    CustomerDataLoginValidator customerDataLoginValidator;
+
     @InitBinder()
     private void initBinder(WebDataBinder binder){
         binder.setValidator(loginCredentialsValidator);
@@ -54,9 +59,10 @@ public class RegisterController{
     }
 
     @RequestMapping(value="/register" , method = RequestMethod.POST)
-    public String postRegister(@ModelAttribute("customerData") @Valid CustomerDataDTO customerDataDTO, BindingResult result, CustomerAddressDataDTO customerAddressDataDTO)
+    public String postRegister(@ModelAttribute("customerData") @Valid CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO)
     {
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
+        customerDataLoginValidator.validate(customerData, ); //cum trimiti mesaje pe UI.
         if (result.hasErrors())
         {
             return "register";
