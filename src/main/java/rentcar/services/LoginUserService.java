@@ -18,7 +18,7 @@ public class LoginUserService {
     public String checkLoginRegistrationCredentials(CustomerData customerData)
     {
         CustomerData customerDataDB = addCustomerDataService.getCustomerAfterEmail(customerData.getEmail());
-        return checkLoginCredentials.checkLoginData(customerData, customerDataDB);
+        return null;
     }
 
 }

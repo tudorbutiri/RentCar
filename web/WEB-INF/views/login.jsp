@@ -69,7 +69,7 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="email">Email</label>
                                         <div class="col-md-6">
-                                            <form:input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" path="loginData.email"/>
+                                            <form:input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" path="loginData.email" required=""/>
                                             <form:errors path="loginData.email"/>
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="password">Password</label>
                                         <div class="col-md-6">
-                                            <form:input id="password" name="password" type="password" placeholder="Enter Password" class="form-control" path="loginData.password"/>
+                                            <form:input id="password" name="password" type="password" placeholder="Enter Password" class="form-control" path="loginData.password" required=""/>
                                             <form:errors path="loginData.password"/>
                                         </div>
                                     </div>

@@ -85,7 +85,7 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="customerData.customerDataString.firstName">First Name </label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerDataString.firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md" required=""/>
+                                            <input id="customerData.customerDataString.firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md" required="" />
                                         </div>
                                     </div>
 
@@ -93,7 +93,7 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="customerData.customerDataString.lastName">Last Name</label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerDataString.lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" required=""/>
+                                            <input id="customerData.customerDataString.lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" required="" required=""/>
                                         </div>
                                     </div>
 

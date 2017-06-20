@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import rentcar.data.CustomerData;
 import rentcar.dto.CustomerDataDTO;
 import rentcar.facade.CustomerFullDetailsFacade;
 import rentcar.facade.LoginUserFacade;
+import rentcar.services.AddCustomerDataService;
+import rentcar.utils.CustomerDataLoginValidator;
 import rentcar.utils.LoginCredentialsValidator;
 
 import javax.validation.Valid;
@@ -32,32 +35,38 @@ public class LoginController
     LoginUserFacade loginUserFacade;
 
     @Autowired
+    CustomerDataLoginValidator customerDataLoginValidator;
+
+    @Autowired
     LoginCredentialsValidator loginCredentialsValidator;
+
+    @Autowired
+    AddCustomerDataService addCustomerDataService;
 
     @InitBinder()
     private void initBinder(WebDataBinder binder){
-        binder.setValidator(loginCredentialsValidator);
+        binder.setValidator(customerDataLoginValidator);
     }
 
     @RequestMapping(value="/login" , method = RequestMethod.GET)
     public ModelAndView getLogin()
     {
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        map.put("customerDataString", new CustomerDataDTO());
-
         return new ModelAndView("login", "loginData", new CustomerDataDTO());
     }
 
     @RequestMapping(value="/login" , method = RequestMethod.POST)
-    public String postLogin(@ModelAttribute("loginData") @Valid CustomerDataDTO customerDataDTO, BindingResult result)
+    public String postLogin(@ModelAttribute("loginData") CustomerDataDTO customerDataDTO, BindingResult result)
     {
-        if(result.hasErrors())
+        CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
+        loginCredentialsValidator.validate(customerDataDTO, result);
+        if (result.hasErrors())
         {
             return "login";
         }
         else
         {
-            return loginUserFacade.checkCustomerLoginData(customerDataDTO);
+            loginUserFacade.checkCustomerLoginData(customerDataDTO);
+            return "myaccount";
         }
     }
 }
