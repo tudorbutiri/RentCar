@@ -1,10 +1,12 @@
 package rentcar.controllers;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
@@ -43,10 +45,10 @@ public class RegisterController{
     @Autowired
     CustomerDataLoginValidator customerDataLoginValidator;
 
-    @InitBinder()
-    private void initBinder(WebDataBinder binder){
-        binder.setValidator(loginCredentialsValidator);
-    }
+//    @InitBinder()
+//    private void initBinder(WebDataBinder binder){
+//        binder.setValidator(loginCredentialsValidator);
+//    }
 
     @RequestMapping(value="/register" , method = RequestMethod.GET)
     public ModelAndView getRegister()
@@ -54,17 +56,18 @@ public class RegisterController{
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("customerDataString", new CustomerDataDTO());
         map.put("customerAddressDataString", new CustomerAddressDataDTO());
-
         return new ModelAndView("register", "customerData", map);
     }
 
     @RequestMapping(value="/register" , method = RequestMethod.POST)
-    public String postRegister(@ModelAttribute("customerData") @Valid CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO)
+    public String postRegister(@ModelAttribute("customerData") CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO, Model model)
     {
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
-        customerDataLoginValidator.validate(customerData, ); //cum trimiti mesaje pe UI.
-        if (result.hasErrors())
+
+        if (1==1)
         {
+            model.addAttribute("test", "Here I AM");
+
             return "register";
         }
         else

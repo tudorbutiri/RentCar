@@ -78,6 +78,7 @@
                                         <label class="col-md-4 control-label" for="customerData.customerDataString.email">Email</label>
                                         <div class="col-md-6">
                                             <input id="customerData.customerDataString.email" name="email" type="text" placeholder="Email" class="form-control input-md" required="" />
+                                            <span class="error">${test}</span>
                                         </div>
                                     </div>
 
