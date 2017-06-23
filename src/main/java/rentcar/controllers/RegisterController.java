@@ -64,18 +64,18 @@ public class RegisterController{
     {
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
 
-        if (1==1)
-        {
-            model.addAttribute("test", "Here I AM");
-
-            return "register";
-        }
-        else
+        //checks if there is an already registered user with the selected email address
+        if (customerData.equals(null))
         {
             customerFullDetailsFacade.addCustomerData(customerDataDTO);
             customerFullDetailsFacade.addCustomerAddressData(customerAddressDataDTO, customerDataDTO);
+
             return "myaccount";
         }
-
+        else
+        {
+            model.addAttribute("emaiNotAvailable", "register.login.fail");
+            return "register";
+        }
     }
 }

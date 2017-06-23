@@ -67,6 +67,7 @@
 
                                     <!-- Text input-->
                                     <div class="form-group">
+                                        <span class="error" class = alert alert-danger cssClass="error">${badEmailOrPassword} </span>
                                         <label class="col-md-4 control-label" for="email">Email</label>
                                         <div class="col-md-6">
                                             <form:input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" path="loginData.email" required=""/>

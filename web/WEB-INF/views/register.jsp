@@ -11,6 +11,7 @@
     <script src="<c:url value = "resources/js/bootstrap.js" />"></script>
     <%--<script src="<c:url value = "resources/js/script.js" />"></script>--%>
     <script src="<c:url value = "resources/js/superfish.js" />"></script>
+    <script src="<c:url value = "resources/js/password-comparison.js" />"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -78,7 +79,7 @@
                                         <label class="col-md-4 control-label" for="customerData.customerDataString.email">Email</label>
                                         <div class="col-md-6">
                                             <input id="customerData.customerDataString.email" name="email" type="text" placeholder="Email" class="form-control input-md" required="" />
-                                            <span class="error">${test}</span>
+                                            <span class="error" cssClass="error">${emaiNotAvailable}</span>
                                         </div>
                                     </div>
 
@@ -112,39 +113,7 @@
                                         <div class="col-md-6">
                                             <input type="password" class="form-control" id="retypePassword" placeholder="Confirm Password"  oninput="checkPass(this)" required="">
                                             <span id="confirmMessage" class="confirmMessage"></span>
-                                            <script language='javascript' type='text/javascript'>
-                                                function checkPass(input)
-                                                {
-                                                    //Store the password field objects into variables ...
-                                                    var pass1 = document.getElementById('customerData.customerDataString.password');
-                                                    var pass2 = document.getElementById('retypePassword');
-
-                                                    //Store the Confimation Message Object ...
-                                                    var message = document.getElementById('confirmMessage');
-                                                    //Set the colors we will be using ...
-                                                    var goodColor = "#66cc66";
-                                                    var badColor = "#ff6666";
-                                                    //Compare the values in the password field
-                                                    //and the confirmation field
-                                                    if(pass1.value == pass2.value){
-                                                        //The passwords match.
-                                                        //Set the color to the good color and inform
-                                                        //the user that they have entered the correct password
-                                                        pass2.style.backgroundColor = goodColor;
-                                                        message.style.color = goodColor;
-                                                        message.innerHTML = "Passwords Match!"
-                                                        input.setCustomValidity('');
-                                                    }else{
-                                                        //The passwords do not match.
-                                                        //Set the color to the bad color and
-                                                        //notify the user.
-                                                        pass2.style.backgroundColor = badColor;
-                                                        message.style.color = badColor;
-                                                        message.innerHTML = "Passwords Do Not Match!"
-                                                        input.setCustomValidity('Password Must be Matching.');
-                                                    }
-                                                }
-                                            </script>
+                                            <script type='text/javascript' src="js/password-comparison.js" ></script>
                                         </div>
                                     </div>
 
