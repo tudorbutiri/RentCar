@@ -24,23 +24,16 @@
             <div class="total">
                 <div class="header">
                     <div class="box_header_user_menu">
-                        <ul class="user_menu"><li class="act first"><a href=""><div class="button-t"><span>Shipping &amp; Returns</span></div></a></li><li class=""><a href=""><div class="button-t"><span>Advanced Search</span></div></a></li><li class=""><a href="/register"><div class="button-t"><span>Create an Account</span></div></a></li><li class="last"><a href="/login"><div class="button-t"><span>Log in</span></div></a></li></ul>
                     </div>
                     <div class="header-right">
-                        <ul class="follow_icon">
-                            <li><a href="#"><img src="resources/images/icon.png" alt=""/></a></li>
-                            <li><a href="#"><img src="resources/images/icon1.png" alt=""/></a></li>
-                            <li><a href="#"><img src="resources/images/icon2.png" alt=""/></a></li>
-                            <li><a href="#"><img src="resources/images/icon3.png" alt=""/></a></li>
-                        </ul>
+
                     </div><div class="clear"></div>
                     <div class="header-bot">
                         <div class="logo">
-                            <a href="/index"><img src="resources/images/logo.png" alt=""/></a>
+                            <a href="/index"><img src="resources/images/logoFinal.png" alt=""/></a>
                         </div>
                         <div class="search">
-                            <input type="text" class="textbox" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
-                            <button class="gray-button"><span>Search</span></button>
+                            <ul class="user_menu"><li class="act first"></li><li class=""><a href="/register"><div class="button-t"><span>Create Account</span></div></a></li><li class=""><a href="/login"><div class="button-t"><span>Login to Account</span></div></a></li><li class="last"><a href="/myaccount"><div class="button-t"><span>My Account</span></div></a></li></ul>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -51,6 +44,7 @@
                             <li><a href="/index">Home</a></li>
                             <li><a href="/about">About</a></li>
                             <li><a href="/specials">Specials</a></li>
+                            <li><a href ="/reservations">Reservations</a></li>
                             <li><a href="/new">New</a></li>
                             <li><a href="/contact">Contact</a></li>
                         </ul>
@@ -66,6 +60,10 @@
                                     <!-- Form Name -->
                                     <legend>Registration</legend>
 
+                                    <div class="form-group">
+                                        <span class="error">${loginSuccessful}</span>
+                                    </div>
+
                                     <!-- Text input-->
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="customerData.customerDataString.companyName">Company Name</label>
@@ -79,7 +77,7 @@
                                         <label class="col-md-4 control-label" for="customerData.customerDataString.email">Email</label>
                                         <div class="col-md-6">
                                             <input id="customerData.customerDataString.email" name="email" type="text" placeholder="Email" class="form-control input-md" required="" />
-                                            <span class="error" cssClass="error">${emaiNotAvailable}</span>
+                                            <span class="error">${emailNotAvailable}</span>
                                         </div>
                                     </div>
 
@@ -95,7 +93,7 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="customerData.customerDataString.lastName">Last Name</label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerDataString.lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" required="" required=""/>
+                                            <input id="customerData.customerDataString.lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" required=""/>
                                         </div>
                                     </div>
 
@@ -113,7 +111,6 @@
                                         <div class="col-md-6">
                                             <input type="password" class="form-control" id="retypePassword" placeholder="Confirm Password"  oninput="checkPass(this)" required="">
                                             <span id="confirmMessage" class="confirmMessage"></span>
-                                            <script type='text/javascript' src="js/password-comparison.js" ></script>
                                         </div>
                                     </div>
 

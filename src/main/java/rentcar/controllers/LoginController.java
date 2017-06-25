@@ -20,6 +20,7 @@ import rentcar.services.AddCustomerDataService;
 import rentcar.utils.CustomerDataLoginValidator;
 import rentcar.utils.LoginCredentialsValidator;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,11 +45,6 @@ public class LoginController
     @Autowired
     AddCustomerDataService addCustomerDataService;
 
-    @InitBinder()
-    private void initBinder(WebDataBinder binder){
-        binder.setValidator(customerDataLoginValidator);
-    }
-
     @RequestMapping(value="/login" , method = RequestMethod.GET)
     public ModelAndView getLogin()
     {
@@ -56,19 +52,13 @@ public class LoginController
     }
 
     @RequestMapping(value="/login" , method = RequestMethod.POST)
-    public String postLogin(@ModelAttribute("loginData") CustomerDataDTO customerDataDTO, Model model)
+    public String postLogin(@ModelAttribute("loginData") CustomerDataDTO customerDataDTO, Model model, HttpSession httpSession)
     {
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
+        String login = loginUserFacade.checkCustomerLoginData(customerDataDTO, customerData, model);
 
-        if (customerData.equals(null))
-        {
-            loginUserFacade.checkCustomerLoginData(customerDataDTO);
-            return "myaccount";
-        }
-        else
-        {
-            model.addAttribute("badEmailOrPassword", "Email or Password are incorrect");
-            return "login";
-        }
+        //setting the user to the current session
+        httpSession.setAttribute("customer", customerData);
+        return login;
     }
 }
