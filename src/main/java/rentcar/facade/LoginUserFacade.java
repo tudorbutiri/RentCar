@@ -18,7 +18,7 @@ public class LoginUserFacade {
     CustomerFullDetailsConverter customerFullDetailsConverter;
 
 
-    public String checkCustomerLoginData(CustomerDataDTO customerDataDTO, CustomerData customerData, Model model)
+    public boolean checkCustomerLoginData(CustomerDataDTO customerDataDTO, CustomerData customerData, Model model)
     {
         return logInUserService.checkLoginRegistrationCredentials(customerDataDTO, customerData, model);
     }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import rentcar.data.CustomerAddressData;
 import rentcar.data.CustomerData;
 import rentcar.dto.CustomerDataDTO;
 import rentcar.facade.CustomerFullDetailsFacade;
@@ -31,16 +32,7 @@ public class LoginController
     private static final Logger logger = LoggerFactory.getLogger(RegisterController.class);
 
     @Autowired
-    CustomerFullDetailsFacade customerFullDetailsFacade;
-
-    @Autowired
     LoginUserFacade loginUserFacade;
-
-    @Autowired
-    CustomerDataLoginValidator customerDataLoginValidator;
-
-    @Autowired
-    LoginCredentialsValidator loginCredentialsValidator;
 
     @Autowired
     AddCustomerDataService addCustomerDataService;
@@ -55,10 +47,16 @@ public class LoginController
     public String postLogin(@ModelAttribute("loginData") CustomerDataDTO customerDataDTO, Model model, HttpSession httpSession)
     {
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
-        String login = loginUserFacade.checkCustomerLoginData(customerDataDTO, customerData, model);
+        boolean advLogin = loginUserFacade.checkCustomerLoginData(customerDataDTO, customerData, model);
+        if (advLogin == true)
+        {
+            CustomerAddressData customerAddressData = addCustomerDataService.getCustomerAddressDataAfterEmail(customerData.getId());
 
-        //setting the user to the current session
-        httpSession.setAttribute("customer", customerData);
-        return login;
+            //setting the user to the current session
+            httpSession.setAttribute("customer", customerData);
+            httpSession.setAttribute("customeraddress", customerAddressData);
+            return "login";
+        }
+        else return "login";
     }
 }

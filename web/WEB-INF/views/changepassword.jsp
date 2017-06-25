@@ -54,93 +54,42 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <form role="form" data-toggle="validator" method="POST" action="/myaccount" modelAttribute="customerDataFull" class="form-horizontal" id="submitForm" >
+                            <form role="form" data-toggle="validator" method="POST" action="/changepassword" modelAttribute="customerDataFull" class="form-horizontal" id="submitForm" >
 
                                 <fieldset>
                                     <!-- Form Name -->
-                                    <legend>My Account Details</legend>
+                                    <legend>Registration</legend>
 
                                     <div class="form-group">
                                         <span class="error">${loginSuccessful}</span>
                                     </div>
 
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="companyName">Company Name</label>
-                                        <div class="col-md-6">
-                                            <input value="${customer.companyName}" id="companyName" name="companyName" type="text" placeholder="If not applicable, leave blank" class="form-control input-md" readonly/>
-                                        </div>
-                                    </div>
-
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="email">Email</label>
-                                        <div class="col-md-6">
-                                            <input value="${customer.email}" id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="" readonly/>
-                                            <span class="error">${emailNotAvailable}</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="firstName">First Name </label>
-                                        <div class="col-md-6">
-                                            <input value="${customer.firstName}" id="firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md" required="" readonly/>
-                                        </div>
-                                    </div>
-
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="lastName">Last Name</label>
-                                        <div class="col-md-6">
-                                            <input value="${customer.lastName}" id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" required="" readonly/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="cityName"> City name</label>
-                                        <div class="col-md-6">
-                                            <input value="${customerAddress.cityName}" id="cityName" name="cityName" type="text" placeholder="City Name" class="form-control input-md" required="" readonly/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="phoneNumber"> Phone number </label>
-                                        <div class="col-md-6">
-                                            <input value="${customerAddress.phoneNumber}" id="phoneNumber" name="phoneNumber" type="text" placeholder="Phone Number" class="form-control input-md" required="" readonly/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="streetName"> Street name </label>
-                                        <div class="col-md-6">
-                                            <input value="${customerAddress.streetName}" id="streetName" name="streetName" type="text" placeholder="Street Name" class="form-control input-md" required="" readonly/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="streetNumber"> Street number </label>
-                                        <div class="col-md-6">
-                                            <input value="${customerAddress.streetNumber}" id="streetNumber" name="streetNumber" type="text" placeholder="Street Number" class="form-control input-md" required="" readonly/>
-                                        </div>
-                                    </div>
-
-                                    <!-- Button -->
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label"></label>
-                                        <div class="col-md-2">
-                                            <a href="changeaccountdetails" class="btn btn-danger" role="button" class="edit-button">Edit Account</a>
+                                        <!-- Password input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="password">Password</label>
+                                            <div class="col-md-6">
+                                                <input value="${customer.password}" id="password" name="password" type="password" placeholder="Enter Password" class="form-control" required=""/>
+                                            </div>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <a href="changepassword" class="btn btn-danger" role="button" class="edit-button">Change Password</a>
+                                        <%--Re-Type password--%>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="retypePassword">Re-type Password</label>
+                                            <div class="col-md-6">
+                                                <input value="${customer.retypePassword}" type="password" class="form-control" id="retypePassword" placeholder="Confirm Password"  oninput="checkPass(this)" required="">
+                                                <span id="confirmMessage" class="confirmMessage"></span>
+                                            </div>
                                         </div>
 
-                                    </div>
-
+                                        <!-- Button -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="Button Submit"></label>
+                                            <div class="col-md-4">
+                                                <button id="Button Submit" name="Button Submit" class="btn btn-success" type="submit">Submit</button>
+                                            </div>
+                                        </div>
                                 </fieldset>
                             </form>
-
 
                         </div>
                         <div class="header-para">

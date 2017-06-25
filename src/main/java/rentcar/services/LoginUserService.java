@@ -16,22 +16,22 @@ public class LoginUserService {
     @Autowired
     LoginCredentialsValidator checkLoginCredentials;
 
-    public String checkLoginRegistrationCredentials(CustomerDataDTO customerDataDTO, CustomerData customerData, Model model)
+    public boolean checkLoginRegistrationCredentials(CustomerDataDTO customerDataDTO, CustomerData customerData, Model model)
     {
         if (customerData == null || customerData.getEmail() == null || customerData.getPassword() == null)
         {
             model.addAttribute("badEmailOrPassword", "Email or Password are incorrect!");
-            return "login";
+            return false;
         }
         else if ((customerData.getEmail().equals(customerDataDTO.getEmail())) && (customerData.getPassword().equals(customerDataDTO.getPassword())))
         {
             model.addAttribute("badEmailOrPassword", "Login successful");
-            return "login";
+            return true;
         }
         else
         {
             model.addAttribute("badEmailOrPassword", "Email or Password are incorrect!");
-            return "login";
+            return false;
         }
     }
 

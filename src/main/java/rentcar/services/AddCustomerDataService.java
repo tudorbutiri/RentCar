@@ -19,9 +19,19 @@ public class AddCustomerDataService {
         customerDataDAO.customerDataDAOSave(customerData);
     }
 
+    public void updateCustomerData(CustomerData customerData)
+    {
+        customerDataDAO.customerUpdateDataDAOSave(customerData);
+    }
+
     public CustomerData getCustomerAfterEmail(String email)
     {
         return customerDataDAO.customerDataDAOSelectAfterEmail(email);
+    }
+
+    public CustomerAddressData getCustomerAddressDataAfterEmail (Integer id)
+    {
+        return customerDataDAO.customerAddressDataDAOSelectAfterId(id);
     }
 
 }

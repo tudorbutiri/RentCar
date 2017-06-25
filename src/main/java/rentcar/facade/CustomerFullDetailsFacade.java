@@ -34,4 +34,16 @@ public class CustomerFullDetailsFacade {
         CustomerAddressData customerAddressData = customerFullDetailsConverter.convertCustomerAddressDataDTOtoData(customerAddressDataDTO);
         addCustomerAddressDataService.addCustomerAddressData(customerAddressData, customerDataDTO.getEmail());
     }
+
+    public void updateCustomerData(CustomerDataDTO customerDataDTO, Integer id)
+    {
+        CustomerData customerData = customerFullDetailsConverter.convertUpdateCustomerDataToData(customerDataDTO, id);
+        addCustomerDataService.updateCustomerData(customerData);
+    }
+
+    public void updateCustomerAddressData(CustomerAddressDataDTO customerAddressDataDTO, CustomerDataDTO customerDataDTO)
+    {
+        CustomerAddressData customerAddressData = customerFullDetailsConverter.convertCustomerAddressDataDTOtoData(customerAddressDataDTO);
+        addCustomerAddressDataService.addCustomerAddressData(customerAddressData, customerDataDTO.getEmail());
+    }
 }

@@ -129,6 +129,11 @@ body{
 	float: left;
 	border-right: 2px ridge #F75633;
 }
+
+.edit-button{
+	color: #FBFAFA;
+}
+
 .top-nav li.active a, .top-nav li a:hover {
 	background: #f0f0f0;
 	color:#222;
