@@ -29,7 +29,7 @@ import java.util.Map;
 @Controller
 public class LoginController
 {
-    private static final Logger logger = LoggerFactory.getLogger(RegisterController.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     LoginUserFacade loginUserFacade;

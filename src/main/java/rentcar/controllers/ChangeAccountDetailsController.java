@@ -43,7 +43,7 @@ public class ChangeAccountDetailsController {
     {
         if ((httpSession.getAttribute("customer") == null) && (httpSession.getAttribute("customeraddress") == null))
         {
-            model.addAttribute("badEmailOrPassword", "Please login or create a user in order to access the account page");
+            model.addAttribute("loginSuccessful", "Please login or create a user in order to access the account page");
             return "login";
         }
         else
@@ -62,10 +62,10 @@ public class ChangeAccountDetailsController {
         if (customerData == null)
         {
             customerFullDetailsFacade.updateCustomerData(customerDataDTO, customerData.getId());
-            customerFullDetailsFacade.updateCustomerAddressData(customerAddressDataDTO, customerDataDTO);
+            customerFullDetailsFacade.updateCustomerAddressData(customerAddressDataDTO, customerData);
 
-            model.addAttribute("loginSuccessful", "Account has been created. You can now login into the application!");
-            return "register";
+            model.addAttribute("loginSuccessful", "New account details have been saved!");
+            return "myaccount";
         }
         else
         {

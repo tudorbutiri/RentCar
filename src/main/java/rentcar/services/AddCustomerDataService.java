@@ -34,4 +34,9 @@ public class AddCustomerDataService {
         return customerDataDAO.customerAddressDataDAOSelectAfterId(id);
     }
 
+    public void updateCustomerDataPass(CustomerData customerData, CustomerData customerData1)
+    {
+        customerDataDAO.customerDataUpdatePasswordDAOSave(customerData, customerData1);
+    }
+
 }

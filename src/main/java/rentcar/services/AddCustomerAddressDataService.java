@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rentcar.dao.CustomerAddressDataDAO;
 import rentcar.data.CustomerAddressData;
+import rentcar.data.CustomerData;
 
 @Service
 public class AddCustomerAddressDataService {
@@ -20,6 +21,10 @@ public class AddCustomerAddressDataService {
         customerAddressDataDAO.customerAddressDataDAOSave(customerAddressData);
     }
 
-    public void updateCustomerAddressData (CustomerAddressData customerAddressData)
+    public void updateCustomerAddressData (CustomerAddressData customerAddressData, CustomerData customerData)
+    {
+        customerAddressData.setCustomer(customerData);
+        customerAddressDataDAO.updateCustomerAddressDataDAOSave(customerAddressData);
+    }
 
 }

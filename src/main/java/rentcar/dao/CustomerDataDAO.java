@@ -38,14 +38,19 @@ public class CustomerDataDAO {
     {
         Session session  = getSession();
 
-        CustomerData customerData1 = getCustomerData(customerData.getId());
-        customerData1.setCompanyName(customerData.getCompanyName());
-        customerData1.setEmail(customerData.getEmail());
-        customerData1.setFirstName(customerData.getFirstName());
-        customerData1.setLastName(customerData.getLastName());
-        customerData1.setRegisterDate(customerData.getRegisterDate());
+//        CustomerData customerData1 = getCustomerData(customerData.getId());
+//        customerData1.setCompanyName(customerData.getCompanyName());
+//        customerData1.setEmail(customerData.getEmail());
+//        customerData1.setFirstName(customerData.getFirstName());
+//        customerData1.setLastName(customerData.getLastName());
+//        customerData1.setRegisterDate(customerData.getRegisterDate());
 
-        session.saveOrUpdate(customerData1);
+        session.saveOrUpdate(customerData);
+    }
+
+    public void customerDataUpdatePasswordDAOSave(CustomerData customerData, CustomerData customerData1)
+    {
+        
     }
 
     public CustomerData getCustomerData(Integer id)

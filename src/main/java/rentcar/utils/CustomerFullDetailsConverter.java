@@ -52,4 +52,12 @@ public class CustomerFullDetailsConverter {
 
         return customerData;
     }
+
+    public CustomerData convertUpdateCustomerDataPasswordToData(CustomerDataDTO customerDataDTO)
+    {
+        CustomerData customerData = new CustomerData();
+        customerData.setPassword(customerDataDTO.getPassword());
+
+        return customerData;
+    }
 }
