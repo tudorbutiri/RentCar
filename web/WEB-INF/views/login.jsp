@@ -52,7 +52,7 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <form role="form" data-toggle="validator" method="POST" action="/login" modelAttribute="loginData" class="form-horizontal" id="submitForm">
+                            <form role="form" data-toggle="validator" method="POST" action="/login" modelAttribute="loginDataModelAttribute" class="form-horizontal" id="submitForm">
                                 <fieldset>
 
                                     <!-- Form Name -->
@@ -90,7 +90,7 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="Button Submit"></label>
                                         <div class="col-md-6">
-                                            <span class='text-center'><a href="/resetting/request" class="text-sm">Forgot Password?</a></span>
+                                            <span class='text-center'><a href="/forgotpassword" class="text-sm">Forgot Password?</a></span>
                                             <a href="/register" class="col-md-7">Create an account</a>
                                         </div>
                                     </div>
@@ -159,7 +159,7 @@
                         <div class="clear"></div>
                         <div class="footer-bottom">
                             <div class="copy">
-                                <p>All rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a></p>
+                                <p>All rights Reserved | Design by Tudor Butiri</p>
                             </div>
                         </div>
                     </div>

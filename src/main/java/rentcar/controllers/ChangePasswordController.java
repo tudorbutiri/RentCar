@@ -21,13 +21,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class ChangePasswordController {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-
-    @Autowired
-    LoginUserFacade loginUserFacade;
-
-    @Autowired
-    AddCustomerDataService addCustomerDataService;
+    private static final Logger logger = LoggerFactory.getLogger(ChangePasswordController.class);
 
     @Autowired
     CustomerFullDetailsFacade customerFullDetailsFacade;
@@ -48,12 +42,12 @@ public class ChangePasswordController {
     }
 
     @RequestMapping(value="/changepassword" , method = RequestMethod.POST)
-    public String postLogin(@ModelAttribute("changepassword") CustomerDataDTO customerDataDTO, HttpSession httpSession)
+    public String postLogin(@ModelAttribute("changePasswordModelAttribute") CustomerDataDTO customerDataDTO, HttpSession httpSession, Model model)
     {
         CustomerData customerData = (CustomerData) httpSession.getAttribute("customer");
         customerFullDetailsFacade.updateCustomerDataPassword(customerDataDTO, customerData);
 
+        model.addAttribute("loginSuccessful", "Password has been changed successfuly!");
         return "myaccount";
     }
-
 }

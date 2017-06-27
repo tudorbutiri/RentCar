@@ -54,7 +54,7 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <form role="form" data-toggle="validator" method="POST" action="/changeaccountdetails" modelAttribute="customerDataFull" class="form-horizontal" id="submitForm" >
+                            <form role="form" data-toggle="validator" method="POST" action="/changeaccountdetails" modelAttribute="changeAccountDetailsModelAttribute" class="form-horizontal" id="submitForm" >
 
                                 <fieldset>
                                     <!-- Form Name -->
@@ -193,7 +193,7 @@
                         <div class="clear"></div>
                         <div class="footer-bottom">
                             <div class="copy">
-                                <p>All rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a></p>
+                                <p>All rights Reserved | Design by Tudor Butiri</p>
                             </div>
                         </div>
                     </div>

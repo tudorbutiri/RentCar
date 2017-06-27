@@ -35,4 +35,13 @@ public class LoginUserService {
         }
     }
 
+    public boolean checkEmailForgotPassword(CustomerData customerData, Model model)
+    {
+        if (customerData == null)
+        {
+            model.addAttribute("badEmailOrPassword", "Email address is not valid!");
+            return false;
+        }
+        else return true;
+    }
 }

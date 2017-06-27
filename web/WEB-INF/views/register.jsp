@@ -54,7 +54,7 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <form role="form" data-toggle="validator" method="POST" action="/register" modelAttribute="customerData" class="form-horizontal" id="submitForm" >
+                            <form role="form" data-toggle="validator" method="POST" action="/register" modelAttribute="registerModelAttribute" class="form-horizontal" id="submitForm" >
 
                                 <fieldset>
                                     <!-- Form Name -->
@@ -66,42 +66,42 @@
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerDataString.companyName">Company Name</label>
+                                        <label class="col-md-4 control-label" for="companyName">Company Name</label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerDataString.companyName" name="companyName" type="text" placeholder="If not applicable, leave blank" class="form-control input-md" />
+                                            <input id="companyName" name="companyName" type="text" placeholder="If not applicable, leave blank" class="form-control input-md" />
                                         </div>
                                     </div>
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerDataString.email">Email</label>
+                                        <label class="col-md-4 control-label" for="email">Email</label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerDataString.email" name="email" type="text" placeholder="Email" class="form-control input-md" required="" />
+                                            <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="" />
                                             <span class="error">${emailNotAvailable}</span>
                                         </div>
                                     </div>
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerDataString.firstName">First Name </label>
+                                        <label class="col-md-4 control-label" for="firstName">First Name </label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerDataString.firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md" required="" />
+                                            <input id="firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md" required="" />
                                         </div>
                                     </div>
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerDataString.lastName">Last Name</label>
+                                        <label class="col-md-4 control-label" for="lastName">Last Name</label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerDataString.lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" required=""/>
+                                            <input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" required=""/>
                                         </div>
                                     </div>
 
                                     <!-- Password input-->
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerDataString.password">Password</label>
+                                        <label class="col-md-4 control-label" for="password">Password</label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerDataString.password" name="password" type="password" placeholder="Enter Password" class="form-control" required=""/>
+                                            <input id="password" name="password" type="password" placeholder="Enter Password" class="form-control" required=""/>
                                         </div>
                                     </div>
 
@@ -115,32 +115,32 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerAddressDataString.cityName"> City name</label>
+                                        <label class="col-md-4 control-label" for="cityName"> City name</label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerAddressDataString.cityName" name="cityName" type="text" placeholder="City Name" class="form-control input-md" required="">
+                                            <input id="cityName" name="cityName" type="text" placeholder="City Name" class="form-control input-md" required="">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerAddressDataString.phoneNumber"> Phone number </label>
+                                        <label class="col-md-4 control-label" for="phoneNumber"> Phone number </label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerAddressDataString.phoneNumber" name="phoneNumber" type="text" placeholder="Phone Number" class="form-control input-md" required="">
-
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerAddressDataString.streetName"> Street name </label>
-                                        <div class="col-md-6">
-                                            <input id="customerData.customerAddressDataString.streetName" name="streetName" type="text" placeholder="Street Name" class="form-control input-md" required="">
+                                            <input id="phoneNumber" name="phoneNumber" type="text" placeholder="Phone Number" class="form-control input-md" required="">
 
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="customerData.customerAddressDataString.streetNumber"> Street number </label>
+                                        <label class="col-md-4 control-label" for="streetName"> Street name </label>
                                         <div class="col-md-6">
-                                            <input id="customerData.customerAddressDataString.streetNumber" name="streetNumber" type="text" placeholder="Street Number" class="form-control input-md" required="">
+                                            <input id="streetName" name="streetName" type="text" placeholder="Street Name" class="form-control input-md" required="">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="streetNumber"> Street number </label>
+                                        <div class="col-md-6">
+                                            <input id="streetNumber" name="streetNumber" type="text" placeholder="Street Number" class="form-control input-md" required="">
                                         </div>
                                     </div>
 
@@ -212,7 +212,7 @@
                         <div class="clear"></div>
                         <div class="footer-bottom">
                             <div class="copy">
-                                <p>All rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a></p>
+                                <p>All rights Reserved | Design by Tudor Butiri</p>
                             </div>
                         </div>
                     </div>

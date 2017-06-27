@@ -19,7 +19,7 @@ public class ReservationsController {
     @RequestMapping(value="/reservations" , method = RequestMethod.GET)
     public String getReservationView(Model model, HttpSession httpSession)
     {
-        if (httpSession.getAttribute("customer") == null)
+        if ((httpSession.getAttribute("customer") == null) && (httpSession.getAttribute("customeraddress") == null))
         {
             model.addAttribute("badEmailOrPassword", "Please login or create a user in order to acces the reservation page");
             return "login";

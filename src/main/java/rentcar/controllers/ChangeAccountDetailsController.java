@@ -14,12 +14,8 @@ import rentcar.dto.CustomerAddressDataDTO;
 import rentcar.dto.CustomerDataDTO;
 import rentcar.facade.CustomerFullDetailsFacade;
 import rentcar.services.AddCustomerDataService;
-import rentcar.utils.CustomerDataLoginValidator;
-import rentcar.utils.LoginCredentialsValidator;
-
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.Map;
+
 
 @Controller
 public class ChangeAccountDetailsController {
@@ -32,11 +28,6 @@ public class ChangeAccountDetailsController {
     @Autowired
     CustomerFullDetailsFacade customerFullDetailsFacade;
 
-    @Autowired
-    LoginCredentialsValidator loginCredentialsValidator;
-
-    @Autowired
-    CustomerDataLoginValidator customerDataLoginValidator;
 
     @RequestMapping(value="/changeaccountdetails" , method = RequestMethod.GET)
     public String getAccountDetails(Model model, HttpSession httpSession)
@@ -55,9 +46,10 @@ public class ChangeAccountDetailsController {
     }
 
     @RequestMapping(value="/changeaccountdetails" , method = RequestMethod.POST)
-    public String postRegister(@ModelAttribute("customerData") CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO, Model model) {
+    public String postRegister(@ModelAttribute("changeAccountDetailsModelAttribute") CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO, Model model) {
 
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
+
         //checks if there is an already registered user with the selected email address
         if (customerData == null)
         {

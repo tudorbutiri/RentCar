@@ -48,9 +48,17 @@ public class CustomerDataDAO {
         session.saveOrUpdate(customerData);
     }
 
-    public void customerDataUpdatePasswordDAOSave(CustomerData customerData, CustomerData customerData1)
+    public void customerDataUpdatePasswordDAOSave(CustomerData customerData1, CustomerData customerData)
     {
-        
+        Session session  = getSession();
+
+        customerData1.setId(customerData.getId());
+        customerData1.setCompanyName(customerData.getCompanyName());
+        customerData1.setEmail(customerData.getEmail());
+        customerData1.setFirstName(customerData.getFirstName());
+        customerData1.setLastName(customerData.getLastName());
+
+        session.saveOrUpdate(customerData1);
     }
 
     public CustomerData getCustomerData(Integer id)

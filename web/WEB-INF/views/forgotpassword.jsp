@@ -1,17 +1,17 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/views/include.jsp" %>
 
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Free Cars-Online Website Template | About :: w3layouts</title>
+    <title>Luxury Cars - Rent a car | Register</title>
     <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
     <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css" media="all" />
 
+    <script src="<c:url value = "resources/js/jquery-3.2.1.js" />"></script>
     <script src="<c:url value = "resources/js/bootstrap.js" />"></script>
-    <script src="<c:url value = "resources/js/jquery.min.js" />"></script>
-    <script src="<c:url value = "resources/js/script.js" />"></script>
+    <%--<script src="<c:url value = "resources/js/script.js" />"></script>--%>
     <script src="<c:url value = "resources/js/superfish.js" />"></script>
+    <script src="<c:url value = "resources/js/password-comparison.js" />"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -44,7 +44,7 @@
                             <li><a href="/index">Home</a></li>
                             <li><a href="/about">About</a></li>
                             <li><a href="/specials">Specials</a></li>
-                            <li class="active"><a href ="/reservations">Reservations</a></li>
+                            <li><a href ="/reservations">Reservations</a></li>
                             <li><a href="/new">New</a></li>
                             <li><a href="/contact">Contact</a></li>
                         </ul>
@@ -54,83 +54,53 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <div class="about_wrapper"><h1>Long-Term Business</h1>
-                            </div>
-                            <div class="about-group">
-                                <div class="about-top">
-                                    <div class="grid images_3_of_1">
-                                        <img src="resources/images/pic7.jpg" alt=""/>
+                            <form role="form" data-toggle="validator" method="POST" action="/forgotpassword" modelAttribute="forgotPasswordModelAttribute" class="form-horizontal" id="submitForm" >
+
+                                <fieldset>
+                                    <!-- Form Name -->
+                                    <legend>Registration</legend>
+
+                                    <div class="form-group">
+                                        <span class="error">${loginSuccessful}</span>
                                     </div>
-                                    <div class="grid span_2_of_3">
 
-                                        <form class="form-horizontal">
-                                            <fieldset>
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label" for="tourselection">Please select the car</label>
-                                            <div class="col-md-4">
-                                                <select id="tourselection" name="tourselection" class="form-control">
-                                                    <option value="1">Charter Fishing Trip</option>
-                                                    <option value="2">Booze Cruise</option>
-                                                    <option value="3">Kayak per person</option>
-                                                    <option value="4">Airboat</option>
-                                                </select>
-                                            </div>
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="email">Email</label>
+                                        <div class="col-md-6">
+                                            <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="" />
+                                            <span class="error">${emailNotAvailable}</span>
                                         </div>
-
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label" for="Address">Car description</label>
-                                            <div class="col-md-4">
-                                                <textarea class="form-control" id="Address" name="Address">Car description</textarea>
-                                            </div>
-                                        </div>
-
-                                                </fieldset>
-                                            </form>
-                                    </div><div class="clear"></div>
-                                </div>
-                                <p class="about-para"></p><div class="clear"></div>
-                                <%--<button class="btn btn-6 btn-6a">Read More</button> --%>
-                                <div class="carsgeneralpresentation">
-                                    <h2>Luxury and Exotic Cars</h2>
-                                    <p>Below you will be able to see some of the most popular luxury cars you will be able to rent from Sixt.</p>
-                                    <div class="section group">
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>Mercedes Benz S-Class</h3>
-                                            <img src="resources/images/mercedesBenzSClass.png" alt=""/>
-
-                                        </div>
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>BMW 6 Series</h3>
-                                            <img src="resources/images/bmw6Series.png" alt=""/>
-                                        </div>
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>Mercedes Benz G-Class </h3>
-                                            <img src="resources/images/mercedesBenzGClass.png" alt=""/>
-                                        </div><div class="clear"></div>
                                     </div>
-                                </div>
-                                <div class="carsgeneralpresentation">
-                                    <p>If you would like to make heads turn while you are traveling, ELCAR also offers exotic vehicles at certain locations.</p>
-                                    <div class="section group">
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>Mercedes Benz SLK</h3>
-                                            <img src="resources/images/mercedesBenzSlk.png" alt=""/>
 
+                                    <!-- Password input-->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="password">Password</label>
+                                        <div class="col-md-6">
+                                            <input id="password" name="password" type="password" placeholder="Enter Password" class="form-control" required=""/>
                                         </div>
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>Range Rover Evoque</h3>
-                                            <img src="resources/images/rangeRoverEvoque.jpg" alt=""/>
-
-                                        </div>
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>Jaguar F-Type </h3>
-                                            <img src="resources/images/jaguarFType.png" alt=""/>
-                                            <%--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>--%>
-                                        </div><div class="clear"></div>
                                     </div>
-                                </div>
 
-                            </div>
+                                    <%--Re-Type password--%>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="retypePassword">Re-type Password</label>
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" id="retypePassword" placeholder="Confirm Password"  oninput="checkPass(this)" required="">
+                                            <span id="confirmMessage" class="confirmMessage"></span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button -->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="Button Submit"></label>
+                                        <div class="col-md-4">
+                                            <button id="Button Submit" name="Button Submit" class="btn btn-success" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+
+
                         </div>
                         <div class="header-para">
                             <div class="categories">
@@ -199,6 +169,3 @@
 </div>
 </body>
 </html>
-
-
-

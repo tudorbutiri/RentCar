@@ -51,11 +51,11 @@ public class RegisterController{
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("customerDataString", new CustomerDataDTO());
         map.put("customerAddressDataString", new CustomerAddressDataDTO());
-        return new ModelAndView("register", "customerData", map);
+        return new ModelAndView("register", "registerModelAttribute", map);
     }
 
     @RequestMapping(value="/register" , method = RequestMethod.POST)
-    public String postRegister(@ModelAttribute("customerData") CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO, Model model)
+    public String postRegister(@ModelAttribute("registerModelAttribute") CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO, Model model)
     {
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
 

@@ -58,6 +58,9 @@ public class CustomerFullDetailsConverter {
         CustomerData customerData = new CustomerData();
         customerData.setPassword(customerDataDTO.getPassword());
 
+        Date date = new Date();
+        customerData.setRegisterDate(date);
+
         return customerData;
     }
 }

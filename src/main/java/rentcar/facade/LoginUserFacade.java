@@ -23,4 +23,9 @@ public class LoginUserFacade {
         return logInUserService.checkLoginRegistrationCredentials(customerDataDTO, customerData, model);
     }
 
+    public boolean checkCustomerEmailData (CustomerData customerData, Model model)
+    {
+        return logInUserService.checkEmailForgotPassword(customerData, model);
+    }
+
 }

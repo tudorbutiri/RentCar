@@ -256,7 +256,7 @@
 	</div><div class="clear"></div>
 		<div class="footer-bottom">
 			<div class="copy">
-				<p>All rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a></p>
+				<p>All rights Reserved | Design by Tudor Butiri</p>
 			</div>
 		</div>
 </div>

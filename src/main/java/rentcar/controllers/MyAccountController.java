@@ -24,7 +24,7 @@ public class MyAccountController {
     @RequestMapping(value="/myaccount" , method = RequestMethod.GET)
     public String getRegister(Model model, HttpSession httpSession)
     {
-        if (httpSession.getAttribute("customer") == null)
+        if ((httpSession.getAttribute("customer") == null) && (httpSession.getAttribute("customeraddress") == null))
         {
             model.addAttribute("badEmailOrPassword", "Please login or create a user in order to access the reservation page");
             return "login";
@@ -36,11 +36,4 @@ public class MyAccountController {
             return "myaccount";
         }
     }
-
-    @RequestMapping(value="/myaccount" , method = RequestMethod.POST)
-    public String postRegister(@ModelAttribute("customerDataFull") CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO, Model model)
-    {
-        return "myaccount";
-    }
-
 }
