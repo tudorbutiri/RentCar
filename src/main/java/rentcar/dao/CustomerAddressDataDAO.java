@@ -31,7 +31,7 @@ public class CustomerAddressDataDAO {
         logger.info("Customer details data saved");
     }
 
-    public void updateCustomerAddressDataDAOSave(CustomerAddressData customerAddressData)
+    public CustomerAddressData updateCustomerAddressDataDAOSave(CustomerAddressData customerAddressData)
     {
         Session session  = getSession();
 
@@ -42,5 +42,6 @@ public class CustomerAddressDataDAO {
 //        customerAddressData1.setPhoneNumber(customerAddressData.getPhoneNumber());
 
         session.saveOrUpdate(customerAddressData);
+        return customerAddressData;
     }
 }

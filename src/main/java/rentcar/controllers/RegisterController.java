@@ -23,6 +23,7 @@ import rentcar.services.AddCustomerDataService;
 import rentcar.utils.CustomerDataLoginValidator;
 import rentcar.utils.LoginCredentialsValidator;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
@@ -49,8 +50,8 @@ public class RegisterController{
     public ModelAndView getRegister()
     {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("customerDataString", new CustomerDataDTO());
-        map.put("customerAddressDataString", new CustomerAddressDataDTO());
+        map.put("customer", new CustomerDataDTO());
+        map.put("customerAddress", new CustomerAddressDataDTO());
         return new ModelAndView("register", "registerModelAttribute", map);
     }
 

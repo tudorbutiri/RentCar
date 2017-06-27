@@ -1,7 +1,7 @@
 function checkPass(input)
 {
     //Store the password field objects into variables ...
-    var pass1 = document.getElementById('customerData.customerDataString.password');
+    var pass1 = document.getElementById('password');
     var pass2 = document.getElementById('retypePassword');
 
     //Store the Confimation Message Object ...

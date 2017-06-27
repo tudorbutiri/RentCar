@@ -38,15 +38,14 @@ public class CustomerFullDetailsConverter {
         return customerAddressData;
     }
 
-    public CustomerData convertUpdateCustomerDataToData(CustomerDataDTO customerDataDTO, Integer id)
+    public CustomerData convertUpdateCustomerDataToData(CustomerDataDTO customerDataDTO, CustomerData customerData2)
     {
         CustomerData customerData = new CustomerData();
-        customerData.setId(id);
+        customerData.setId(customerData2.getId());
         customerData.setCompanyName(customerDataDTO.getCompanyName());
         customerData.setFirstName(customerDataDTO.getFirstName());
         customerData.setLastName(customerDataDTO.getLastName());
         customerData.setEmail(customerDataDTO.getEmail());
-
         Date date = new Date();
         customerData.setRegisterDate(date);
 

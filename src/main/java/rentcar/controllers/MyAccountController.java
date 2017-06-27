@@ -24,9 +24,9 @@ public class MyAccountController {
     @RequestMapping(value="/myaccount" , method = RequestMethod.GET)
     public String getRegister(Model model, HttpSession httpSession)
     {
-        if ((httpSession.getAttribute("customer") == null) && (httpSession.getAttribute("customeraddress") == null))
+        if ((httpSession.getAttribute("customer") == null) ||(httpSession.getAttribute("customeraddress") == null))
         {
-            model.addAttribute("badEmailOrPassword", "Please login or create a user in order to access the reservation page");
+            model.addAttribute("badEmailOrPassword", "Please login or create a user in order to access the account page");
             return "login";
         }
         else

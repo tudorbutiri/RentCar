@@ -15,7 +15,7 @@
 			<div class="total">
 				<div class="header">
 					<div class="box_header_user_menu">
-						<ul class="user_menu"><li class="act first"><a href=""><div class="button-t"><span>Shipping &amp; Returns</span></div></a></li><li class=""><a href=""><div class="button-t"><span>Advanced Search</span></div></a></li><li class=""><a href="/register"><div class="button-t"><span>Create an Account</span></div></a></li><li class="last"><a href="/login"><div class="button-t"><span>Log in</span></div></a></li></ul>
+						<ul class="user_menu"><li class="act first"></li><li class=""><a href="/register"><div class="button-t"><span>Create Account</span></div></a></li><li class=""><a href="/login"><div class="button-t"><span>Login to Account</span></div></a></li><li class=""><a href="/myaccount"><div class="button-t"><span>My Account</span></div></a></li><li class="last"><a href="/logout"><div class="button-t"><span>Log out</span></div></a></li></ul>
 					</div>
 					<div class="header-right">
 						<ul class="follow_icon">

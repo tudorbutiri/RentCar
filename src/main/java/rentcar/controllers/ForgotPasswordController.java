@@ -40,7 +40,7 @@ public class ForgotPasswordController {
     }
 
     @RequestMapping(value="/forgotpassword" , method = RequestMethod.POST)
-    public String postLogin(@ModelAttribute("forgotPasswordModelAttribute") CustomerDataDTO customerDataDTO, Model model, HttpSession httpSession)
+    public String postLogin(@ModelAttribute("forgotPasswordModelAttribute") CustomerDataDTO customerDataDTO, Model model)
     {
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
 

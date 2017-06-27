@@ -52,10 +52,12 @@ public class LoginController
         boolean advLogin = loginUserFacade.checkCustomerLoginData(customerDataDTO, customerData, model);
         if (advLogin == true)
         {
-            CustomerAddressData customerAddressData = addCustomerDataService.getCustomerAddressDataAfterEmail(customerData.getId());
+            CustomerAddressData customerAddressData = addCustomerDataService.getCustomerAddressDataAfterCustomerID(customerData.getId());
             //setting the user to the current session
+
             httpSession.setAttribute("customer", customerData);
             httpSession.setAttribute("customeraddress", customerAddressData);
+
             model.addAttribute("badEmailOrPassword", "Login successful!");
             return "login";
         }

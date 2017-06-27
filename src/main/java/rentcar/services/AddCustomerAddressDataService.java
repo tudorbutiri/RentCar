@@ -21,10 +21,11 @@ public class AddCustomerAddressDataService {
         customerAddressDataDAO.customerAddressDataDAOSave(customerAddressData);
     }
 
-    public void updateCustomerAddressData (CustomerAddressData customerAddressData, CustomerData customerData)
+    public CustomerAddressData updateCustomerAddressData (CustomerAddressData customerAddressData, CustomerData customerData)
     {
+        customerAddressData.setId(customerData.getId());
         customerAddressData.setCustomer(customerData);
-        customerAddressDataDAO.updateCustomerAddressDataDAOSave(customerAddressData);
+        return customerAddressDataDAO.updateCustomerAddressDataDAOSave(customerAddressData);
     }
 
 }

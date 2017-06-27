@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import rentcar.data.CustomerAddressData;
 import rentcar.data.CustomerData;
 import rentcar.dto.CustomerAddressDataDTO;
 import rentcar.dto.CustomerDataDTO;
@@ -32,7 +33,7 @@ public class ChangeAccountDetailsController {
     @RequestMapping(value="/changeaccountdetails" , method = RequestMethod.GET)
     public String getAccountDetails(Model model, HttpSession httpSession)
     {
-        if ((httpSession.getAttribute("customer") == null) && (httpSession.getAttribute("customeraddress") == null))
+        if ((httpSession.getAttribute("customer") == null) || (httpSession.getAttribute("customeraddress") == null))
         {
             model.addAttribute("loginSuccessful", "Please login or create a user in order to access the account page");
             return "login";
@@ -46,23 +47,14 @@ public class ChangeAccountDetailsController {
     }
 
     @RequestMapping(value="/changeaccountdetails" , method = RequestMethod.POST)
-    public String postRegister(@ModelAttribute("changeAccountDetailsModelAttribute") CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO, Model model) {
+    public String postRegister(@ModelAttribute("changeAccountDetailsModelAttribute") CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO, Model model, HttpSession httpSession) {
 
-        CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
+        CustomerData customerData = (CustomerData) httpSession.getAttribute("customer");
 
-        //checks if there is an already registered user with the selected email address
-        if (customerData == null)
-        {
-            customerFullDetailsFacade.updateCustomerData(customerDataDTO, customerData.getId());
-            customerFullDetailsFacade.updateCustomerAddressData(customerAddressDataDTO, customerData);
+        httpSession.setAttribute("customer", customerFullDetailsFacade.updateCustomerData(customerDataDTO, customerData));
+        httpSession.setAttribute("customerAddress", customerFullDetailsFacade.updateCustomerAddressData(customerAddressDataDTO, customerData));
 
-            model.addAttribute("loginSuccessful", "New account details have been saved!");
-            return "myaccount";
-        }
-        else
-        {
-            model.addAttribute("emailNotAvailable", "Email address is unavailable");
-            return "changeaccountdetails";
-        }
+        model.addAttribute("loginSuccessful", "New account details have been saved!");
+        return "changeaccountdetails";
     }
 }

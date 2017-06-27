@@ -38,7 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<a href="/index"><img src="resources/images/logoFinal.png" alt=""/></a>
 						</div>
 						<div class="search">
-							<ul class="user_menu"><li class="act first"></li><li class=""><a href="/register"><div class="button-t"><span>Create Account</span></div></a></li><li class=""><a href="/login"><div class="button-t"><span>Login to Account</span></div></a></li><li class="last"><a href="/myaccount"><div class="button-t"><span>My Account</span></div></a></li></ul>
+							<ul class="user_menu"><li class="act first"></li><li class=""><a href="/register"><div class="button-t"><span>Create Account</span></div></a></li><li class=""><a href="/login"><div class="button-t"><span>Login to Account</span></div></a></li><li class=""><a href="/myaccount"><div class="button-t"><span>My Account</span></div></a></li><li class="last"><a href="/logout"><div class="button-t"><span>Log out</span></div></a></li></ul>
 						</div>
 					<div class="clear"></div> 
 				</div>		

@@ -36,8 +36,8 @@ public class ChangePasswordController {
         }
         else
         {
-            model.addAttribute("customer",  new CustomerData());
-            return "changeaccountdetails";
+            model.addAttribute("customer",  new CustomerDataDTO());
+            return "changepassword";
         }
     }
 
@@ -48,6 +48,6 @@ public class ChangePasswordController {
         customerFullDetailsFacade.updateCustomerDataPassword(customerDataDTO, customerData);
 
         model.addAttribute("loginSuccessful", "Password has been changed successfuly!");
-        return "myaccount";
+        return "changepassword";
     }
 }

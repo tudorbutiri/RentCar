@@ -19,9 +19,10 @@ public class AddCustomerDataService {
         customerDataDAO.customerDataDAOSave(customerData);
     }
 
-    public void updateCustomerData(CustomerData customerData)
+    public CustomerData updateCustomerData(CustomerData customerData1, CustomerData customerData)
     {
-        customerDataDAO.customerUpdateDataDAOSave(customerData);
+        customerData1.setPassword(customerData.getPassword());
+        return customerDataDAO.customerUpdateDataDAOSave(customerData1);
     }
 
     public CustomerData getCustomerAfterEmail(String email)
@@ -29,7 +30,7 @@ public class AddCustomerDataService {
         return customerDataDAO.customerDataDAOSelectAfterEmail(email);
     }
 
-    public CustomerAddressData getCustomerAddressDataAfterEmail (Integer id)
+    public CustomerAddressData getCustomerAddressDataAfterCustomerID (Integer id)
     {
         return customerDataDAO.customerAddressDataDAOSelectAfterId(id);
     }

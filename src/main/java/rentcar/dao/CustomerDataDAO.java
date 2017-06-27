@@ -34,7 +34,7 @@ public class CustomerDataDAO {
         logger.info("Customer data saved");
     }
 
-    public void customerUpdateDataDAOSave(CustomerData customerData)
+    public CustomerData customerUpdateDataDAOSave(CustomerData customerData)
     {
         Session session  = getSession();
 
@@ -46,6 +46,7 @@ public class CustomerDataDAO {
 //        customerData1.setRegisterDate(customerData.getRegisterDate());
 
         session.saveOrUpdate(customerData);
+        return customerData;
     }
 
     public void customerDataUpdatePasswordDAOSave(CustomerData customerData1, CustomerData customerData)
