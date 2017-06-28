@@ -5,12 +5,18 @@
 <html>
 <head>
     <title>Free Cars-Online Website Template | About :: w3layouts</title>
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css" media="all" />
 
-    <script src="<c:url value = "resources/js/bootstrap.js" />"></script>
-    <script src="<c:url value = "resources/js/jquery.min.js" />"></script>
-    <script src="<c:url value = "resources/js/script.js" />"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="<c:url value = "resources/js/datepicker.js" />"></script>
+
     <script src="<c:url value = "resources/js/superfish.js" />"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -54,81 +60,50 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <div class="about_wrapper"><h1>Long-Term Business</h1>
+                            <div class="about_wrapper"><h1>Car Reservations</h1>
                             </div>
                             <div class="about-group">
-                                <div class="about-top">
-                                    <div class="grid images_3_of_1">
-                                        <img src="resources/images/pic7.jpg" alt=""/>
-                                    </div>
-                                    <div class="grid span_2_of_3">
 
-                                        <form class="form-horizontal">
-                                            <fieldset>
+
+                                <div class="container">
+                                    <div class='col-md-5'>
                                         <div class="form-group">
-                                            <label class="col-md-4 control-label" for="tourselection">Please select the car</label>
-                                            <div class="col-md-4">
-                                                <select id="tourselection" name="tourselection" class="form-control">
-                                                    <option value="1">Charter Fishing Trip</option>
-                                                    <option value="2">Booze Cruise</option>
-                                                    <option value="3">Kayak per person</option>
-                                                    <option value="4">Airboat</option>
-                                                </select>
+                                            <div class='input-group date' id='datetimepicker6'>
+                                                <input type='text' class="form-control" />
+                                                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
                                             </div>
                                         </div>
-
+                                    </div>
+                                    <div class='col-md-5'>
                                         <div class="form-group">
-                                            <label class="col-md-4 control-label" for="Address">Car description</label>
-                                            <div class="col-md-4">
-                                                <textarea class="form-control" id="Address" name="Address">Car description</textarea>
+                                            <div class='input-group date' id='datetimepicker7'>
+                                                <input type='text' class="form-control" />
+                                                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
                                             </div>
                                         </div>
-
-                                                </fieldset>
-                                            </form>
-                                    </div><div class="clear"></div>
-                                </div>
-                                <p class="about-para"></p><div class="clear"></div>
-                                <%--<button class="btn btn-6 btn-6a">Read More</button> --%>
-                                <div class="carsgeneralpresentation">
-                                    <h2>Luxury and Exotic Cars</h2>
-                                    <p>Below you will be able to see some of the most popular luxury cars you will be able to rent from Sixt.</p>
-                                    <div class="section group">
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>Mercedes Benz S-Class</h3>
-                                            <img src="resources/images/mercedesBenzSClass.png" alt=""/>
-
-                                        </div>
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>BMW 6 Series</h3>
-                                            <img src="resources/images/bmw6Series.png" alt=""/>
-                                        </div>
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>Mercedes Benz G-Class </h3>
-                                            <img src="resources/images/mercedesBenzGClass.png" alt=""/>
-                                        </div><div class="clear"></div>
                                     </div>
                                 </div>
-                                <div class="carsgeneralpresentation">
-                                    <p>If you would like to make heads turn while you are traveling, ELCAR also offers exotic vehicles at certain locations.</p>
-                                    <div class="section group">
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>Mercedes Benz SLK</h3>
-                                            <img src="resources/images/mercedesBenzSlk.png" alt=""/>
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $('#datetimepicker6').datetimepicker();
+                                        $('#datetimepicker7').datetimepicker({
+                                            useCurrent: false //Important! See issue #1075
+                                        });
+                                        $("#datetimepicker6").on("dp.change", function (e) {
+                                            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                                        });
+                                        $("#datetimepicker7").on("dp.change", function (e) {
+                                            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                                        });
+                                    });
+                                </script>
 
-                                        </div>
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>Range Rover Evoque</h3>
-                                            <img src="resources/images/rangeRoverEvoque.jpg" alt=""/>
 
-                                        </div>
-                                        <div class="grid_1_of_3 images_1_of_3">
-                                            <h3>Jaguar F-Type </h3>
-                                            <img src="resources/images/jaguarFType.png" alt=""/>
-                                            <%--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>--%>
-                                        </div><div class="clear"></div>
-                                    </div>
-                                </div>
+
 
                             </div>
                         </div>

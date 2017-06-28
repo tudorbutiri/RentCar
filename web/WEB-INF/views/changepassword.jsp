@@ -4,12 +4,12 @@
 <html>
 <head>
     <title>Luxury Cars - Rent a car | Register</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css" media="all" />
 
-    <script src="<c:url value = "resources/js/jquery-3.2.1.js" />"></script>
-    <script src="<c:url value = "resources/js/bootstrap.js" />"></script>
-    <%--<script src="<c:url value = "resources/js/script.js" />"></script>--%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="<c:url value = "resources/js/script.js" />"></script>
     <script src="<c:url value = "resources/js/superfish.js" />"></script>
     <script src="<c:url value = "resources/js/password-comparison.js" />"></script>
 
