@@ -21,7 +21,7 @@ public class CarTypeData {
     private String type;
 
     @Column(name = "AUTOMATIC", updatable = true, nullable = false)
-    private Boolean automatic;
+    private String automatic;
 
     public Integer getId() {
         return id;
@@ -55,11 +55,11 @@ public class CarTypeData {
         this.type = type;
     }
 
-    public Boolean getAutomatic() {
+    public String getAutomatic() {
         return automatic;
     }
 
-    public void setAutomatic(Boolean automatic) {
+    public void setAutomatic(String automatic) {
         this.automatic = automatic;
     }
 }

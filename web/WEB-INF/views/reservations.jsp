@@ -62,50 +62,45 @@
                         <div class="header_bottom_right_images">
                             <div class="about_wrapper"><h1>Car Reservations</h1>
                             </div>
-                            <div class="about-group">
+                            <form role="form" method="POST" action="/checkavailablecars" modelAttribute="availablecars" class="form-horizontal" id="submitForm" >
 
-
+                                <div class="about-group">
+                                <span>Pick-up date</span>
                                 <div class="container">
                                     <div class='col-md-5'>
                                         <div class="form-group">
                                             <div class='input-group date' id='datetimepicker6'>
                                                 <input type='text' class="form-control" />
                                                 <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <span>Return date</span>
+                                <div class="container">
                                     <div class='col-md-5'>
                                         <div class="form-group">
                                             <div class='input-group date' id='datetimepicker7'>
                                                 <input type='text' class="form-control" />
                                                 <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <script type="text/javascript">
-                                    $(function () {
-                                        $('#datetimepicker6').datetimepicker();
-                                        $('#datetimepicker7').datetimepicker({
-                                            useCurrent: false //Important! See issue #1075
-                                        });
-                                        $("#datetimepicker6").on("dp.change", function (e) {
-                                            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-                                        });
-                                        $("#datetimepicker7").on("dp.change", function (e) {
-                                            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-                                        });
-                                    });
-                                </script>
-
-
-
-
                             </div>
+
+                                <%--<div class="form-group">--%>
+                                    <label class="col-md-6 control-label" for="Button Submit"></label>
+                                    <div class="col-md-4">
+                                        <button id="Button Submit" name="Button Submit" class="btn btn-danger" type="submit">Check available cars</button>
+                                    </div>
+                                <%--</div>--%>
+
+                            </form>
                         </div>
                         <div class="header-para">
                             <div class="categories">
