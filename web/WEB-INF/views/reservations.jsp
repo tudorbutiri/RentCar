@@ -62,7 +62,7 @@
                         <div class="header_bottom_right_images">
                             <div class="about_wrapper"><h1>Car Reservations</h1>
                             </div>
-                            <form role="form" method="POST" action="/checkavailablecars" modelAttribute="availablecars" class="form-horizontal" id="submitForm" >
+                            <form role="form" method="POST" action="/checkavailablecars" modelAttribute="availableCarsModelAttribute" class="form-horizontal" id="submitForm" >
 
                                 <div class="about-group">
                                 <span>Pick-up date</span>
@@ -70,7 +70,7 @@
                                     <div class='col-md-5'>
                                         <div class="form-group">
                                             <div class='input-group date' id='datetimepicker6'>
-                                                <input type='text' class="form-control" />
+                                                <input type='text' class="form-control" name="bookingDate"/>
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-calendar"></span>
                                                 </span>
@@ -83,7 +83,7 @@
                                     <div class='col-md-5'>
                                         <div class="form-group">
                                             <div class='input-group date' id='datetimepicker7'>
-                                                <input type='text' class="form-control" />
+                                                <input type='text' class="form-control" name="returnDate"/>
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-calendar"></span>
                                                 </span>
@@ -101,6 +101,16 @@
                                 <%--</div>--%>
 
                             </form>
+
+                            <div class="container">
+
+                            <select>
+                                <c:forEach items="${listCarTypes}" var="item">
+                                    <option>${item}</option>
+                                </c:forEach>
+                            </select>
+
+                            </div>
                         </div>
                         <div class="header-para">
                             <div class="categories">

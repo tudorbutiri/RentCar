@@ -17,6 +17,10 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+        </sourceRoots>
       </configuration>
     </facet>
     <facet type="javaeeApplication" name="javaEEApplication">
@@ -31,7 +35,9 @@
         <datasource-map>
           <unit-entry name="sessionFactory" value="myDataSource" />
         </datasource-map>
-        <naming-strategy-map />
+        <naming-strategy-map>
+          <unit-entry name="sessionFactory" />
+        </naming-strategy-map>
       </configuration>
     </facet>
     <facet type="jpa" name="JPA">
@@ -51,6 +57,12 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web/resources/css" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web/resources/fonts" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web/resources/images" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web/resources/js" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web/WEB-INF/views" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

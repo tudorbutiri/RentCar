@@ -6,11 +6,11 @@
 
 
     <!--makes the context available:-->
-    <!--<listener>-->
-        <!--<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>-->
-    <!--</listener>-->
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
 
-    <!--<display-name>Rent a Car - Spring MVC Application</display-name>-->
+    <display-name>Rent a Car - Spring MVC Application</display-name>
 
     <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
     <context-param>
