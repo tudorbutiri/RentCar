@@ -1,23 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/views/include.jsp" %>
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Free Cars-Online Website Template | Home :: w3layouts</title>
+	<title>ELCAR-Rent | Home</title>
 	<link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="<c:url value = "resources/js/script.js" />"></script>
+	<%--<script src="<c:url value = "resources/js/script.js" />"></script>--%>
 	<script src="<c:url value = "resources/js/superfish.js" />"></script>
+
+
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -49,9 +46,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<ul>
 						<li class="active"><a href="/index">Home</a></li>
 						<li><a href="/about">About</a></li>
-						<li><a href="/specials">Specials</a></li>
+						<li><a href="/carselection">Car Selection</a></li>
 						<li><a href="/reservations">Reservations</a></li>
-						<li><a href="/new">New</a></li>
+						<li><a href="/articles">Articles</a></li>
 						<li><a href="/contact">Contact</a></li>
 					</ul>
 					<div class="clear"></div> 
@@ -61,201 +58,115 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="header-bottom">
 				 <div class="header_bottom_right_images">
 				     	<div id="slideshow">
-							<ul class="slides">
-						    	<li><a href="details.html"><canvas></canvas><img src="resources/images/banner4.jpg" alt="Marsa Alam underawter close up" ></a></li>
-						        <li><a href="details.html"><canvas></canvas><img src="resources/images/banner2.jpg" alt="Turrimetta Beach - Dawn" ></a></li>
-						        <li><a href="details.html"><canvas></canvas><img src="resources/images/banner3.jpg" alt="Power Station" ></a></li>
-						        <li><a href="details.html"><canvas></canvas><img src="resources/images/banner1.jpg" alt="Colors of Nature" ></a></li>
-						    </ul>
-						    <span class="arrow previous"></span>
-						    <span class="arrow next"></span>
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="resources/images/bann1.jpg" alt="">
+                                    </div>
+
+                                    <div class="item">
+                                        <img src="resources/images/bann2.jpg" alt="">
+                                    </div>
+
+                                    <div class="item">
+                                        <img src="resources/images/bann3.jpg" alt="">
+                                    </div>
+                                </div>
+
+                                <!-- Left and right controls -->
+                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
 				  	</div>
 		  			<div class="content-wrapper">		  
 						<div class="content-top">
-							  	<div class="box_wrapper"><h1>New Products For July</h1>
-								</div>
+							  	<div class="box_wrapper"><h1>Get to know us</h1></div>
 							 <div class="text"> 	
 								<div class="grid_1_of_3 images_1_of_3">
 									<div class="grid_1">
-										<a href="/single"><img src="resources/images/pic5.jpg" title="continue reading" alt=""></a>
+										<a href="/carselection"><img src="resources/images/pic5.jpg" title="Car Park" alt=""></a>
 											<div class="grid_desc">
-												<p class="title">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-												<p class="title1">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-													 <div class="price" style="height: 19px;">
-													 	 <span class="reducedfrom">$66.00</span>
-								        				<span class="actual">$12.00</span>
-													</div>
+												<p class="title">Exclusive Car Park</p>
+												<p class="title1">Check our exclusive car park and find more details about our cars!</p>
 													<div class="cart-button">
-														<div class="cart">
-															<a href="#"><img src="resources/images/cart.png" alt=""/></a>
-														</div>
-														<button class="button"><span>Details</span></button>
+                                                        <a href="/carselection"><button class="btn btn-danger"><span>Details</span></button></a>
 													<div class="clear"></div>
 												</div>
 											</div>
 								</div><div class="clear"></div>
-							</div>
+							</div><div class="grid_1_of_3 images_1_of_3">
+                                 <div class="grid_1">
+                                     <a href="/reservations"><img src="resources/images/reservationbanner.jpg" title="continue reading" alt=""></a>
+                                     <div class="grid_desc">
+                                         <p class="title">Reservations</p>
+                                         <p class="title1">Already decided? Don't waste more time and book your dream car today!</p>
+                                         <div class="cart-button">
+                                             <a href="/reservations"><button class="btn btn-danger"><span>Details</span></button></a>
+                                             <div class="clear"></div>
+                                         </div>
+                                     </div>
+                                 </div><div class="clear"></div>
+                             </div>
 									<div class="grid_1_of_3 images_1_of_3">
 										  <div class="grid_1">
-										<a href="/single"><img src="resources/images/pic6.jpg" title="continue reading" alt=""></a>
+										<a href="/articles"><img src="resources/images/articles.jpg" title="Articles" alt=""></a>
 											<div class="grid_desc">
-												<p class="title">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-												<p class="title1">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-													 <div class="price" style="height: 19px;">
-													 	 <span class="reducedfrom">$66.00</span>
-								        				<span class="actual">$12.00</span>
-													</div>
+												<p class="title">News and Articles</p>
+												<p class="title1">Why should you rent a luxury car? Check out what the experts say!</p>
 													<div class="cart-button">
-														<div class="cart">
-															<a href="#"><img src="resources/images/cart.png" alt=""/></a>
-														</div>
-														<button class="button"><span>Details</span></button>
+                                                        <a href="/articles"><button class="btn btn-danger"><span>Details</span></button></a>
 													<div class="clear"></div>
 												</div>
 											</div>
 								</div><div class="clear"></div>
 									</div>
-									<div class="grid_1_of_3 images_1_of_3">
-										  <div class="grid_1">
-										<a href="/single"><img src="resources/images/pic4.jpg" title="continue reading" alt=""></a>
-											<div class="grid_desc">
-												<p class="title">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-												<p class="title1">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-													 <div class="price" style="height: 19px;">
-													 	 <span class="reducedfrom">$66.00</span>
-								        				<span class="actual">$12.00</span>
-													</div>
-													<div class="cart-button">
-														<div class="cart">
-															<a href="#"><img src="resources/images/cart.png" alt=""/></a>
-														</div>
-														<button class="button"><span>Details</span></button>
-													<div class="clear"></div>
-												</div>
-											</div>
-								</div><div class="clear"></div>
-									</div><div class="clear"></div>
+									<div class="clear"></div>
 								</div>
 						</div>
-						<div class="content-top">
-							  	<div class="box_wrapper"><h1>Featured Products</h1>
-								</div>
-							 <div class="text"> 	
-								<div class="grid_1_of_3 images_1_of_3">
-									<div class="grid_1">
-										<a href="/single"><img src="resources/images/pic1.jpg" title="continue reading" alt=""></a>
-											<div class="grid_desc">
-												<p class="title">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-												<p class="title1">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-													 <div class="price" style="height: 19px;">
-													 	 <span class="reducedfrom">$66.00</span>
-								        				<span class="actual">$12.00</span>
-													</div>
-													<div class="cart-button">
-														<div class="cart">
-															<a href="#"><img src="resources/images/cart.png" alt=""/></a>
-														</div>
-														<button class="button"><span>Details</span></button>
-													<div class="clear"></div>
-												</div>
-											</div>
-								</div><div class="clear"></div>
-							</div>
-									<div class="grid_1_of_3 images_1_of_3">
-										  <div class="grid_1">
-										<a href="/single"><img src="resources/images/pic2.jpg" title="continue reading" alt=""></a>
-											<div class="grid_desc">
-												<p class="title">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-												<p class="title1">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-													 <div class="price" style="height: 19px;">
-													 	 <span class="reducedfrom">$66.00</span>
-								        				<span class="actual">$12.00</span>
-													</div>
-													<div class="cart-button">
-														<div class="cart">
-															<a href="#"><img src="resources/images/cart.png" alt=""/></a>
-														</div>
-														<button class="button"><span>Details</span></button>
-													<div class="clear"></div>
-												</div>
-											</div>
-								</div><div class="clear"></div>
-									</div>
-									<div class="grid_1_of_3 images_1_of_3">
-										  <div class="grid_1">
-										<a href="/single"><img src="resources/images/pic3.jpg" title="continue reading" alt=""></a>
-											<div class="grid_desc">
-												<p class="title">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-												<p class="title1">Lorem ipsum dolor sitconsectetuer adipiscing elit</p>
-													 <div class="price" style="height: 19px;">
-													 	 <span class="reducedfrom">$66.00</span>
-								        				<span class="actual">$12.00</span>
-													</div>
-													<div class="cart-button">
-														<div class="cart">
-															<a href="#"><img src="resources/images/cart.png" alt=""/></a>
-														</div>
-														<button class="button"><span>Details</span></button>
-													<div class="clear"></div>
-												</div>
-											</div>
-								</div><div class="clear"></div>
-									</div><div class="clear"></div>
-								</div>
-						</div>
-				</div>
+                    </div>
 		</div>
 		<div class="header-para">
 				<div class="categories">
 						<div class="list-categories">
 							<div class="first-list">
-								<div class="div_2"><a href="">Cars</a></div>
+								<div class="div_2"><a href="/carselection">Cars</a></div>
 								<div class="div_img">
-									<img src="resources/images/car1.jpg" alt="Cars" title="Cars" width="60" height="39">
-								</div><div class="clear"></div>
+								</div>
+                                <div class="clear"></div>
 							</div>
 							<div class="first-list">
-								<div class="div_2"><a href="">Rental</a></div>
+								<div class="div_2"><a href="/reservations">Rental</a></div>
 								<div class="div_img">
-									<img src="resources/images/car2.jpg" alt="Cars" title="Cars" width="60" height="39">
-								</div><div class="clear"></div>
+								</div>
+                                <div class="clear"></div>
 							</div>
 							<div class="first-list">
-								<div class="div_2"><a href="">Banking</a></div>
+								<div class="div_2"><a href="/branches">Branches</a></div>
 								<div class="div_img">
-									<img src="resources/images/car3.jpg" alt="Cars" title="Cars" width="60" height="39">
 								</div><div class="clear"></div>
 							</div>
-							<div class="first-list">
-								<div class="div_2"><a href="">Trucks</a></div>
-								<div class="div_img">
-									<img src="resources/images/car4.jpg" alt="Cars" title="Cars" width="60" height="39">
-								</div><div class="clear"></div>
-							</div>
+
+                            <div class="first-list">
+                                <div class="div_2"><a href="/faq">FAQ</a></div>
+                                <div class="div_img">
+                                </div><div class="clear"></div>
+                            </div>
+
+                            <div class="first-list">
+                                <div class="div_2"><a href="/terms">Terms and Conditions</a></div>
+                                <div class="div_img">
+                                </div><div class="clear"></div>
+                            </div>
 				</div>
-				<div class="box"> 
-							<div class="box-heading"><h1><a href="#">Cart:&nbsp;</a></h1></div>
-							 <div class="box-content">
-							Now in your cart&nbsp;<strong> 0 items</strong>
-							</div>	
-				</div>
-				<div class="box-title">
-					<h1><span class="title-icon"></span><a href="">Branches</a></h1>
-				</div>
-				<div class="section group example">
-					<div class="col_1_of_2 span_1_of_2">
-					  <img src="resources/images/pic21.jpg" alt=""/>
-					   <img src="resources/images/pic24.jpg" alt=""/>
-					   <img src="resources/images/pic25.jpg" alt=""/>
-					   <img src="resources/images/pic27.jpg" alt=""/>
-	 				</div>
-					<div class="col_1_of_2 span_1_of_2">
-						 <img src="resources/images/pic22.jpg" alt=""/>
-					  	<img src="resources/images/pic23.jpg" alt=""/>
-					  	<img src="resources/images/pic26.jpg" alt=""/>
-					  	<img src="resources/images/pic28.jpg" alt=""/>
-					  </div><div class="clear"></div>
-		   		 </div>
+
 				<div class="clear"></div>
 				</div>
 	</div>

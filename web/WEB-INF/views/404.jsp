@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Free Cars-Online Website Template | 404 :: w3layouts</title>
+<title>ELCAR-Rent | 404</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -41,9 +41,9 @@
 					<ul>
 						<li><a href="/index">Home</a></li>
 						<li class="active"><a href="/about">About</a></li>
-						<li><a href="/specials">Specials</a></li>
+						<li><a href="/carselection">Car Selection</a></li>
 						<li><a href="/reservations">Reservations</a></li>
-						<li><a href="/new">New</a></li>
+						<li><a href="/articles">Articles</a></li>
 						<li><a href="/contact">Contact</a></li>
 					</ul>
 					<div class="clear"></div> 

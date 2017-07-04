@@ -4,9 +4,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Free Cars-Online Website Template | Contact :: w3layouts</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>ELCAR-Rent | Contact</title>
 	<link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -43,9 +43,9 @@
 					<ul>
 						<li><a href="/index">Home</a></li>
 						<li><a href="/about">About</a></li>
-						<li><a href="/specials">Specials</a></li>
+						<li><a href="/carselection">Car Selection</a></li>
 						<li><a href ="/reservations">Reservations</a></li>
-						<li><a href="/new">New</a></li>
+						<li><a href="/articles">Articles</a></li>
 						<li class="active"><a href="/contact">Contact</a></li>
 					</ul>
 					<div class="clear"></div> 
@@ -63,19 +63,19 @@
 					    <form method="post" action="contact-post.html">
 					    	<div>
 						    	<span><label>NAME</label></span>
-						    	<span><input name="userName" type="text" class="textbox"></span>
+						    	<span><input name="userName" type="text" class="textbox" required></span>
 						    </div>
 						    <div>
 						    	<span><label>E-MAIL</label></span>
-						    	<span><input name="userEmail" type="text" class="textbox"></span>
+						    	<span><input name="userEmail" type="text" class="textbox" required></span>
 						    </div>
 						    <div>
 						     	<span><label>MOBILE</label></span>
-						    	<span><input name="userPhone" type="text" class="textbox"></span>
+						    	<span><input name="userPhone" type="text" class="textbox" required></span>
 						    </div>
 						    <div>
 						    	<span><label>SUBJECT</label></span>
-						    	<span><textarea name="userMsg"> </textarea></span>
+						    	<span><textarea name="userMsg" required> </textarea></span>
 						    </div>
 						   <div>
 						   		<span><input type="submit" value="Submit"></span>
@@ -85,55 +85,42 @@
   				</div><div class="clear"></div>
 			</div>
 		</div>
-		<div class="header-para">
-				<div class="categories">
+				<div class="header-para">
+					<div class="categories">
 						<div class="list-categories">
 							<div class="first-list">
-								<div class="div_2"><a href="">Cars</a></div>
+								<div class="div_2"><a href="/carselection">Cars</a></div>
 								<div class="div_img">
-									<img src="resources/images/car1.jpg" alt="Cars" title="Cars" width="60" height="39">
-								</div><div class="clear"></div>
+								</div>
+								<div class="clear"></div>
 							</div>
 							<div class="first-list">
-								<div class="div_2"><a href="">Rental</a></div>
+								<div class="div_2"><a href="/reservations">Rental</a></div>
 								<div class="div_img">
-									<img src="resources/images/car2.jpg" alt="Cars" title="Cars" width="60" height="39">
-								</div><div class="clear"></div>
+								</div>
+								<div class="clear"></div>
 							</div>
 							<div class="first-list">
-								<div class="div_2"><a href="">Banking</a></div>
+								<div class="div_2"><a href="/branches">Branches</a></div>
 								<div class="div_img">
-									<img src="resources/images/car3.jpg" alt="Cars" title="Cars" width="60" height="39">
 								</div><div class="clear"></div>
 							</div>
+
 							<div class="first-list">
-								<div class="div_2"><a href="">Trucks</a></div>
+								<div class="div_2"><a href="/faq">FAQ</a></div>
 								<div class="div_img">
-									<img src="resources/images/car4.jpg" alt="Cars" title="Cars" width="60" height="39">
 								</div><div class="clear"></div>
 							</div>
-				</div>
-				<div class="box"> 
-							<div class="box-heading"><h1><a href="#">Cart:&nbsp;</a></h1></div>
-							 <div class="box-content">
-							Now in your cart&nbsp;<strong> 0 items</strong>
-							</div>	
-				</div>
-				<div class="box-title">
-					<h1><span class="title-icon"></span><a href="">Specials</a></h1>
-				</div>
-				<div class="section group example">
-					<div class="col_1_of_2 span_1_of_2">
-					  <img src="resources/images/pic21.jpg" alt=""/>
-					   <img src="resources/images/pic24.jpg" alt=""/>
-					   <img src="resources/images/pic25.jpg" alt=""/>
+
+							<div class="first-list">
+								<div class="div_2"><a href="/terms">Terms and Conditions</a></div>
+								<div class="div_img">
+								</div><div class="clear"></div>
+							</div>
+						</div>
+
+						<div class="clear"></div>
 					</div>
-					<div class="col_1_of_2 span_1_of_2">
-						 <img src="resources/images/pic22.jpg" alt=""/>
-					  	<img src="resources/images/pic23.jpg" alt=""/>
-					  	<img src="resources/images/pic26.jpg" alt=""/>
-					</div><div class="clear"></div>
-		   		 </div>
 				</div>
 	</div>
 		<div class="clear"></div>

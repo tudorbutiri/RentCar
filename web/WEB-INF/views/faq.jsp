@@ -1,9 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/views/include.jsp" %>
 
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>ELCAR-Rent | Account</title>
+    <title>ELCAR-Rent | Articles</title>
     <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -11,7 +12,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="<c:url value = "resources/js/script.js" />"></script>
     <script src="<c:url value = "resources/js/superfish.js" />"></script>
-    <script src="<c:url value = "resources/js/password-comparison.js" />"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,7 +26,6 @@
                     <div class="box_header_user_menu">
                     </div>
                     <div class="header-right">
-
                     </div><div class="clear"></div>
                     <div class="header-bot">
                         <div class="logo">
@@ -44,7 +43,7 @@
                             <li><a href="/index">Home</a></li>
                             <li><a href="/about">About</a></li>
                             <li><a href="/carselection">Car Selection</a></li>
-                            <li><a href ="/reservations">Reservations</a></li>
+                            <li><a href="/reservations">Reservations</a></li>
                             <li><a href="/articles">Articles</a></li>
                             <li><a href="/contact">Contact</a></li>
                         </ul>
@@ -54,42 +53,18 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <form role="form" data-toggle="validator" method="POST" action="/changepassword" modelAttribute="changePasswordModelAttribute" class="form-horizontal" id="submitForm" >
+                            <div class="about_wrapper"><h1>Frequently asked questions</h1>
+                            </div>
 
-                                <fieldset>
-                                    <!-- Form Name -->
-                                    <legend>Change Password</legend>
+                                <h2>Simple Collapsible</h2>
+                                <p>Click on the button to toggle between showing and hiding content.</p>
+                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+                                <div id="demo" class="collapse">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
 
-                                    <div class="form-group">
-                                        <span class="error">${loginSuccessful}</span>
-                                    </div>
-
-                                        <!-- Password input-->
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label" for="password">Password</label>
-                                            <div class="col-md-6">
-                                                <input id="password" name="password" type="password" placeholder="Enter Password" class="form-control" required=""/>
-                                            </div>
-                                        </div>
-
-                                        <%--Re-Type password--%>
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label" for="retypePassword">Re-type Password</label>
-                                            <div class="col-md-6">
-                                                <input type="password" class="form-control" id="retypePassword" placeholder="Confirm Password"  oninput="checkPass(this)" required="">
-                                                <span id="confirmMessage" class="confirmMessage"></span>
-                                            </div>
-                                        </div>
-
-                                        <!-- Button -->
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label" for="Button Submit"></label>
-                                            <div class="col-md-4">
-                                                <button id="Button Submit" name="Button Submit" class="btn btn-success" type="submit">Submit</button>
-                                            </div>
-                                        </div>
-                                </fieldset>
-                            </form>
 
                         </div>
                         <div class="header-para">

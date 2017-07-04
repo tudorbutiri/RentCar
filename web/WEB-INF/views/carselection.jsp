@@ -4,7 +4,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Free Cars-Online Website Template | New :: w3layouts</title>
+<title>ELCAR-Rent | Car Selection</title>
+	<title>Luxury Cars - Rent a car | Register</title>
 	<link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -12,8 +13,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="<c:url value = "resources/js/script.js" />"></script>
 	<script src="<c:url value = "resources/js/superfish.js" />"></script>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>   
 </head>
@@ -26,7 +26,6 @@
 					<div class="box_header_user_menu">
 					</div>
 					<div class="header-right">
-
 					</div><div class="clear"></div> 
 					<div class="header-bot">
 						<div class="logo">
@@ -41,11 +40,11 @@
 		<div class="menu"> 	
 			<div class="top-nav"> 
 					<ul>
-						<li><a href="/index">Home</a></li>
+						<li><a href="../../index">Home</a></li>
 						<li><a href="/about">About</a></li>
-						<li><a href="/specials">Specials</a></li>
+						<li class="active"><a href="/carselection">Car Selection</a></li>
 						<li><a href ="/reservations">Reservations</a></li>
-						<li class="active"><a href="/new">New</a></li>
+						<li><a href="/articles">Articles</a></li>
 						<li><a href="/contact">Contact</a></li>
 					</ul>
 					<div class="clear"></div> 
@@ -53,13 +52,14 @@
 		</div>
 		<div class="banner-top">
 			<div class="header-bottom">
-				 <div class="header_bottom_right_resources/images">
-				     	<div class="content-wrapper">		  
+				 <div class="header_bottom_right_images">
+				     	
+		  			<div class="content-wrapper">		  
 						<div class="content-top">
-							  	<div class="about_wrapper"><h1>Specials</h1>
+							  	<div class="about_wrapper"><h1>Car Info</h1>
 								</div>
 							 <div class="text"> 	
-								<div class="grid_1_of_3 resources/images_1_of_3">
+								<div class="grid_1_of_3 images_1_of_3">
 									<div class="grid_1">
 										<a href="/single"><img src="resources/images/pic12.jpg" title="continue reading" alt=""></a>
 											<div class="grid_desc">
@@ -79,7 +79,7 @@
 											</div>
 								</div><div class="clear"></div>
 							</div>
-									<div class="grid_1_of_3 resources/images_1_of_3">
+									<div class="grid_1_of_3 images_1_of_3">
 										  <div class="grid_1">
 										<a href="/single"><img src="resources/images/pic13.jpg" title="continue reading" alt=""></a>
 											<div class="grid_desc">
@@ -99,7 +99,7 @@
 											</div>
 								</div><div class="clear"></div>
 									</div>
-									<div class="grid_1_of_3 resources/images_1_of_3">
+									<div class="grid_1_of_3 images_1_of_3">
 										  <div class="grid_1">
 										<a href="/single"><img src="resources/images/pic14.jpg" title="continue reading" alt=""></a>
 											<div class="grid_desc">
@@ -125,7 +125,7 @@
 							  	<div class="box_wrapper"><h1>Featured Products</h1>
 								</div>
 							 <div class="text"> 	
-								<div class="grid_1_of_3 resources/images_1_of_3">
+								<div class="grid_1_of_3 images_1_of_3">
 									<div class="grid_1">
 										<a href="/single"><img src="resources/images/pic15.jpg" title="continue reading" alt=""></a>
 											<div class="grid_desc">
@@ -145,7 +145,7 @@
 											</div>
 								</div><div class="clear"></div>
 							</div>
-									<div class="grid_1_of_3 resources/images_1_of_3">
+									<div class="grid_1_of_3 images_1_of_3">
 										  <div class="grid_1">
 										<a href="/single"><img src="resources/images/pic16.jpg" title="continue reading" alt=""></a>
 											<div class="grid_desc">
@@ -165,7 +165,7 @@
 											</div>
 								</div><div class="clear"></div>
 									</div>
-									<div class="grid_1_of_3 resources/images_1_of_3">
+									<div class="grid_1_of_3 images_1_of_3">
 										  <div class="grid_1">
 										<a href="/single"><img src="resources/images/pic17.jpg" title="continue reading" alt=""></a>
 											<div class="grid_desc">
@@ -201,60 +201,44 @@
 		            </ul>
        			</div>
 		</div>
-		<div class="header-para">
-				<div class="categories">
+				<div class="header-para">
+					<div class="categories">
 						<div class="list-categories">
 							<div class="first-list">
-								<div class="div_2"><a href="">Cars</a></div>
+								<div class="div_2"><a href="/carselection">Cars</a></div>
 								<div class="div_img">
-									<img src="resources/images/car1.jpg" alt="Cars" title="Cars" width="60" height="39">
-								</div><div class="clear"></div>
+								</div>
+								<div class="clear"></div>
 							</div>
 							<div class="first-list">
-								<div class="div_2"><a href="">Rental</a></div>
+								<div class="div_2"><a href="/reservations">Rental</a></div>
 								<div class="div_img">
-									<img src="resources/images/car2.jpg" alt="Cars" title="Cars" width="60" height="39">
-								</div><div class="clear"></div>
+								</div>
+								<div class="clear"></div>
 							</div>
 							<div class="first-list">
-								<div class="div_2"><a href="">Banking</a></div>
+								<div class="div_2"><a href="/branches">Branches</a></div>
 								<div class="div_img">
-									<img src="resources/images/car3.jpg" alt="Cars" title="Cars" width="60" height="39">
 								</div><div class="clear"></div>
 							</div>
+
 							<div class="first-list">
-								<div class="div_2"><a href="">Trucks</a></div>
+								<div class="div_2"><a href="/faq">FAQ</a></div>
 								<div class="div_img">
-									<img src="resources/images/car4.jpg" alt="Cars" title="Cars" width="60" height="39">
 								</div><div class="clear"></div>
 							</div>
+
+							<div class="first-list">
+								<div class="div_2"><a href="/terms">Terms and Conditions</a></div>
+								<div class="div_img">
+								</div><div class="clear"></div>
+							</div>
+						</div>
+
+						<div class="clear"></div>
+					</div>
 				</div>
-				<div class="box"> 
-							<div class="box-heading"><h1><a href="#">Cart:&nbsp;</a></h1></div>
-							 <div class="box-content">
-							Now in your cart&nbsp;<strong> 0 items</strong>
-							</div>	
-				</div>
-				<div class="box-title">
-					<h1><span class="title-icon"></span><a href="">Specials</a></h1>
-				</div>
-				<div class="section group example">
-					<div class="col_1_of_2 span_1_of_2">
-					  <img src="resources/images/pic21.jpg" alt=""/>
-					   <img src="resources/images/pic24.jpg" alt=""/>
-					   <img src="resources/images/pic25.jpg" alt=""/>
-					   <img src="resources/images/pic27.jpg" alt=""/>
-	 				</div>
-					<div class="col_1_of_2 span_1_of_2">
-						 <img src="resources/images/pic22.jpg" alt=""/>
-					  	<img src="resources/images/pic23.jpg" alt=""/>
-					  	<img src="resources/images/pic26.jpg" alt=""/>
-					  	<img src="resources/images/pic28.jpg" alt=""/>
-					  </div><div class="clear"></div>
-		   		 </div>
-				</div>
-		</div>
-		<div class="clear"></div>
+	</div><div class="clear"></div>
 		<div class="footer-bottom">
 			<div class="copy">
 				<p>All rights Reserved | Design by Tudor Butiri</p>

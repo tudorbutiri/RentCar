@@ -20,6 +20,12 @@
         <sourceRoots>
           <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/web/resources" />
+          <root url="file://$MODULE_DIR$/web/resources/css" />
+          <root url="file://$MODULE_DIR$/web/resources/fonts" />
+          <root url="file://$MODULE_DIR$/web/resources/images" />
+          <root url="file://$MODULE_DIR$/web/resources/js" />
+          <root url="file://$MODULE_DIR$/web/WEB-INF/views" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -30,22 +36,12 @@
         </descriptors>
       </configuration>
     </facet>
-    <facet type="hibernate" name="Hibernate">
-      <configuration>
-        <datasource-map>
-          <unit-entry name="sessionFactory" value="myDataSource" />
-        </datasource-map>
-        <naming-strategy-map>
-          <unit-entry name="sessionFactory" />
-        </naming-strategy-map>
-      </configuration>
-    </facet>
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="NewPersistenceUnit" />
+          <factory-entry name="persistenceUnit" value="78aaf397-e6ca-4971-b32b-52fa8ac04aee" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/java/META-INF/persistence.xml" />
       </configuration>
@@ -58,11 +54,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/web/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/web/resources/css" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/web/resources/fonts" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/web/resources/images" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/web/resources/js" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/web/WEB-INF/views" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

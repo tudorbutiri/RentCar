@@ -9,6 +9,6 @@ public class SpecialsController {
     @RequestMapping(value="/specials" , method = RequestMethod.GET)
     public String getRegister()
     {
-        return "specials";
+        return "carselection";
     }
 }

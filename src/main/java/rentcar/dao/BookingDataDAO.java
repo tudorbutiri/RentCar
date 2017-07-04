@@ -37,15 +37,15 @@ public class BookingDataDAO {
         Date bookingDate = bookingData.getBookingDate();
         Date returnDate = bookingData.getReturnDate();
 
-//        String searchQuery = "select car From BookingData WHERE bookingDate = :returnDate AND returnDate = :bookingDate";
-        String searchQuery = "select car From BookingData WHERE returnDate > ?";
+        String searchQuery = "select car From BookingData WHERE bookingDate = :returnDate AND returnDate = :bookingDate";
+//        String searchQuery = "select car From BookingData WHERE returnDate > ?";
 
         Query query = session.createQuery(searchQuery);
 
 
 
-        query.setParameter(0, returnDate);
-        //query.setParameter(1, bookingDate);
+        query.setDate("returnDate", returnDate);
+        query.setDate("bookingDate", bookingDate);
 
         List<CarData> bookingsInTheInterval = query.list();
 

@@ -5,7 +5,6 @@
       <element id="javaee-facet-resources" facet="rentcar/javaeeApplication/javaEEApplication" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="main" />
           <element id="module-output" name="rentcar" />
           <element id="jpa-descriptors" facet="rentcar/jpa/JPA" />
         </element>
@@ -56,7 +55,6 @@
         </element>
       </element>
       <element id="javaee-facet-resources" facet="rentcar/web/Web" />
-      <element id="artifact" artifact-name="rentcar:javaEEApplication exploded" />
     </root>
   </artifact>
 </component>

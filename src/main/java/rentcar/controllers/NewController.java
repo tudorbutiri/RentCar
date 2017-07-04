@@ -9,6 +9,6 @@ public class NewController {
     @RequestMapping(value="/new" , method = RequestMethod.GET)
     public String getRegister()
     {
-        return "new";
+        return "articles";
     }
 }
