@@ -53,7 +53,7 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <div class="about_wrapper"><h1>6 Reasons to rent a luxury car</h1>
+                            <div class="about_wrapper"><h2>6 Reasons to rent a luxury car</h2>
                             </div>
 
                             <div class="about-group">

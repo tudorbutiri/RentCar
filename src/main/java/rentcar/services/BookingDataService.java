@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rentcar.dao.BookingDataDAO;
 import rentcar.data.BookingData;
+import rentcar.data.CarData;
+import rentcar.data.CarTypeData;
 
 import java.util.List;
 import java.util.Set;
@@ -14,14 +16,14 @@ public class BookingDataService {
     @Autowired
     BookingDataDAO bookingDataDAO;
 
-    public Set getCarDataIDFromInterval(BookingData bookingData)
+    public List<CarData> getCarDataFromBookingInterval(BookingData bookingData)
     {
-        return bookingDataDAO.getCarDataFromReservationInterval(bookingData);
+        return bookingDataDAO.getCarDataFromBookingInterval(bookingData);
     }
 
-    public Set getAvailableCarTypesFromDB(Set set)
+    public List<CarTypeData> getAllCarTypesData(List<CarData> excludedCarDatas)
     {
-        return bookingDataDAO.getAvailableCarTypes(set);
+        return bookingDataDAO.getAllCarTypesData(excludedCarDatas);
     }
 
     public List getCarTypeAfterID(Set set)

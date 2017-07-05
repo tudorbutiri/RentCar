@@ -3,6 +3,8 @@ package rentcar.facade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rentcar.data.BookingData;
+import rentcar.data.CarData;
+import rentcar.data.CarTypeData;
 import rentcar.dto.BookingDataDTO;
 import rentcar.services.BookingDataService;
 import rentcar.utils.BookingDatesConverter;
@@ -19,15 +21,15 @@ public class BookingDatesFacade {
     @Autowired
     BookingDataService bookingDataService;
 
-    public Set getAllCarDataIDFromBookingInterval(BookingDataDTO bookingDataDTO)
+    public List<CarData> getCarDataFromBookingInterval(BookingDataDTO bookingDataDTO)
     {
         BookingData bookingData = bookingDatesConverter.convertBookingDataDTOtoData(bookingDataDTO);
-        return bookingDataService.getCarDataIDFromInterval(bookingData);
+        return bookingDataService.getCarDataFromBookingInterval(bookingData);
     }
 
-    public Set getAllCarTypesWithIndexes(Set set)
+    public List<CarTypeData> getAllCarTypesData(List<CarData> excludedCarDatas)
     {
-        return bookingDataService.getAvailableCarTypesFromDB(set);
+        return bookingDataService.getAllCarTypesData(excludedCarDatas);
     }
 
     public List getCarTypeAfterCarTypeId(Set set)

@@ -12,9 +12,11 @@ public class BookingData
     @Column(name = "BOOKING_NUMBER", updatable = false, nullable = false)
     private Integer bookingNumber;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "BOOKING_DATE", updatable = true, nullable = false)
     private Date bookingDate;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "RETURN_DATE", updatable = true, nullable = false)
     private Date returnDate;
 

@@ -60,9 +60,9 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <div class="about_wrapper"><h1>Car Reservations</h1>
+                            <div class="about_wrapper"><h2>Car Reservations</h2>
                             </div>
-                            <form role="form" method="POST" action="/checkavailablecars" modelAttribute="availableCarsModelAttribute" class="form-horizontal" id="submitForm" >
+                            <form role="form" method="POST" action="/reservations" modelAttribute="availableCarsModelAttribute" class="form-horizontal" id="submitForm" >
 
                                 <div class="about-group">
                                 <span>Pick-up date</span>
@@ -70,7 +70,7 @@
                                     <div class='col-md-5'>
                                         <div class="form-group">
                                             <div class='input-group date' id='datetimepicker6'>
-                                                <input type='text' class="form-control" name="bookingDate"/>
+                                                <input type='text' class="form-control" name="bookingDate" required/>
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-calendar"></span>
                                                 </span>
@@ -83,7 +83,7 @@
                                     <div class='col-md-5'>
                                         <div class="form-group">
                                             <div class='input-group date' id='datetimepicker7'>
-                                                <input type='text' class="form-control" name="returnDate"/>
+                                                <input type='text' class="form-control" name="returnDate" required/>
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-calendar"></span>
                                                 </span>
@@ -103,12 +103,16 @@
                             </form>
 
                             <div class="container">
+                                <div class='col-md-5'>
+                                    <div class="form-group">
 
-                            <select>
+                            <select class="form-control">
                                 <c:forEach items="${listCarTypes}" var="item">
-                                    <option>${item}</option>
+                                    <option label="${item.producer} ${item.name}" value="${item.id}"></option>
                                 </c:forEach>
                             </select>
+                                        </div>
+                                    </div>
 
                             </div>
                         </div>

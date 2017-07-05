@@ -53,7 +53,7 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <div class="about_wrapper"><h1>5 Reasons Why Luxury Car Rentals are Becoming Popular</h1>
+                            <div class="about_wrapper"><h2>5 Reasons Why Luxury Car Rentals are Becoming Popular</h2>
                             </div>
 
                             <div class="about-group">

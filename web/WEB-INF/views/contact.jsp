@@ -54,7 +54,7 @@
 		<div class="banner-top">
 			<div class="header-bottom">
 				 <div class="header_bottom_right_images">
-				 	<div class="about_wrapper"><h1>Long-Term Business</h1>
+				 	<div class="about_wrapper"><h2>Long-Term Business</h2>
 					</div>
 		    <div class="section group">
 				<div class="col span_2_of_c">

@@ -1,8 +1,11 @@
 package rentcar.dao;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.classic.Session;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,68 +33,55 @@ public class BookingDataDAO {
         return hibernateTemplate.getSessionFactory().getCurrentSession();
     }
 
-    public Set getCarDataFromReservationInterval(BookingData bookingData)
-    {
+    public List<CarData> getCarDataFromBookingInterval(BookingData bookingData) {
         Session session = getSession();
-
-        Date bookingDate = bookingData.getBookingDate();
-        Date returnDate = bookingData.getReturnDate();
-
-        String searchQuery = "select car From BookingData WHERE bookingDate = :returnDate AND returnDate = :bookingDate";
-//        String searchQuery = "select car From BookingData WHERE returnDate > ?";
-
-        Query query = session.createQuery(searchQuery);
-
-
-
-        query.setDate("returnDate", returnDate);
-        query.setDate("bookingDate", bookingDate);
-
-        List<CarData> bookingsInTheInterval = query.list();
+        Criteria criteria = session.createCriteria(BookingData.class);
+        criteria.add(Restrictions.lt("bookingDate", bookingData.getReturnDate()));
+        criteria.add(Restrictions.gt("returnDate", bookingData.getBookingDate()));
+        criteria.setProjection(Projections.property("car"));
+        List<CarData> bookingsInTheInterval = criteria.list();
 
         logger.info("Retrieved multiple objects, BookingData, in the specified interval");
 
-        return getCarDataIndexes(bookingsInTheInterval);
+        return bookingsInTheInterval;
     }
 
-    public Set getCarDataIndexes(List<CarData> carData)
-    {
-        ArrayList list = new ArrayList();
-        for (int i = 0; i<carData.size(); i++)
+//    public List<CarTypeData> getAllCarTypesData(List<CarData> excludedCarDatas) {
+//        List<Integer> ids = new ArrayList<Integer>();
+//        for(CarData excludedCarData : excludedCarDatas) {
+//            ids.add(excludedCarData.getId());
+//        }
+//        Criteria criteria = getSession().createCriteria(CarData.class);
+//        if(excludedCarDatas != null && excludedCarDatas.size() > 0){
+//            criteria.add(Restrictions.not(Restrictions.in("id", ids)));
+//        }
+//        criteria.setProjection(Projections.property("carTypeData"));
+//        List<CarTypeData> carTypeDatas = criteria.list();
+//
+//        logger.info("Retrieved multiple objects, CarTypeData, in the specified interval");
+//
+//        return carTypeDatas;
+//    }
+
+    public List<CarTypeData> getAllCarTypesData(List<CarData> excludedCarDatas) {
+        List<Integer> ids = new ArrayList<Integer>();
+        for(CarData excludedCarData : excludedCarDatas)
         {
-            list.add(carData.get(i).getId());
+            ids.add(excludedCarData.getCarTypeData().getId());
         }
-        Set<Integer> uniqueCarDataIndexes = new HashSet<Integer>(list);
-
-        return uniqueCarDataIndexes;
-    }
-
-    public Set getAvailableCarTypes(Set set)
-    {
-        Session session = getSession();
-        String searchQuery = "Select carTypeData From CarData WHERE carTypeData NOT IN (" + set + ")";
-        SQLQuery query = session.createSQLQuery(searchQuery);
-        List<CarTypeData> listCarDataType = query.list();
-
+        //get all unique values from carTypeData;
+        Set<Integer> uniqueCarTypeID = new HashSet<Integer>(ids);
+        Criteria criteria = getSession().createCriteria(CarTypeData.class);
+        if(excludedCarDatas != null && excludedCarDatas.size() > 0)
+        {
+            criteria.add(Restrictions.not(Restrictions.in("id", uniqueCarTypeID)));
+        }
+        List<CarTypeData> carTypeDatas = criteria.list();
         logger.info("Retrieved multiple objects, CarTypeData, in the specified interval");
-
-        return getCarIndexes(listCarDataType);
+        return carTypeDatas;
     }
 
-    public Set getCarIndexes(List<CarTypeData> carTypeData)
-    {
-        ArrayList list = new ArrayList();
-        for (int i = 0; i<carTypeData.size(); i++)
-        {
-            list.add(carTypeData.get(i).getId());
-        }
-        Set<Integer> uniqueCarTypeIndexes = new HashSet<Integer>(list);
-
-        return uniqueCarTypeIndexes;
-    }
-
-    public List getAllCarsAfterTypeID(Set set)
-    {
+    public List getAllCarsAfterTypeID(Set set) {
         Session session = getSession();
         String searchQuery = "Select * From CarTypeData WHERE id = (" + set + ")";
         SQLQuery query = session.createSQLQuery(searchQuery);

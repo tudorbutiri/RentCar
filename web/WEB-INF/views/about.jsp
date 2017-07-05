@@ -53,12 +53,12 @@
 		<div class="banner-top">
 			<div class="header-bottom">
 				 <div class="header_bottom_right_images">
-				 	<div class="about_wrapper"><h1>Long-Term Business</h1>
+				 	<div class="about_wrapper"><h2>Long-Term Business</h2>
 					</div>
 				    <div class="about-group">
 		  			<div class="about-top">
 						<div class="grid images_3_of_1">
-							<img src="resources/images/pic7.jpg" alt=""/>
+							<img src="resources/images/abouttopimage.jpg" alt=""/>
 						</div>
 						<div class="grid span_2_of_3">
 							<h3>Drive Luxury Cars nationwide with ELCAR</h3>

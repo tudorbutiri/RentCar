@@ -53,7 +53,7 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <div class="about_wrapper"><h1>Why Renting Luxury Cars Makes Sense</h1>
+                            <div class="about_wrapper"><h2>Why Renting Luxury Cars Makes Sense</h2>
                             </div>
 
                             <div class="about-group">
