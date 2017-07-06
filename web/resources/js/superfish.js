@@ -122,3 +122,18 @@
 $(function(){
 	$('.sf-menu').superfish({speed:'fast'});
 })
+
+function initMap() {
+	var myLatLng = {lat: 45.9432, lng: 24.9668};
+
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 4,
+		center: myLatLng
+	});
+
+	var marker = new google.maps.Marker({
+		position: myLatLng,
+		map: map,
+		title: 'Hello World!'
+	});
+}

@@ -63,58 +63,100 @@
                             <div class="about_wrapper"><h2>Car Reservations</h2>
                             </div>
                             <form role="form" method="POST" action="/reservations" modelAttribute="availableCarsModelAttribute" class="form-horizontal" id="submitForm" >
-
                                 <div class="about-group">
-                                <span>Pick-up date</span>
-                                <div class="container">
-                                    <div class='col-md-5'>
-                                        <div class="form-group">
-                                            <div class='input-group date' id='datetimepicker6'>
-                                                <input type='text' class="form-control" name="bookingDate" required/>
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
+                                    <span>Pick-up date</span>
+                                    <div class="container">
+                                        <div class='col-md-5'>
+                                            <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker6'>
+                                                    <input type='text' class="form-control" name="bookingDate" required/>
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span>Return date</span>
+                                    <div class="container">
+                                        <div class='col-md-5'>
+                                            <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker7'>
+                                                    <input type='text' class="form-control" name="returnDate" required/>
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <span>Return date</span>
-                                <div class="container">
-                                    <div class='col-md-5'>
-                                        <div class="form-group">
-                                            <div class='input-group date' id='datetimepicker7'>
-                                                <input type='text' class="form-control" name="returnDate" required/>
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                                <%--<div class="form-group">--%>
                                     <label class="col-md-6 control-label" for="Button Submit"></label>
                                     <div class="col-md-4">
                                         <button id="Button Submit" name="Button Submit" class="btn btn-danger" type="submit">Check available cars</button>
                                     </div>
-                                <%--</div>--%>
 
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"></label>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
                             </form>
 
-                            <div class="container">
-                                <div class='col-md-5'>
-                                    <div class="form-group">
 
-                            <select class="form-control">
-                                <c:forEach items="${listCarTypes}" var="item">
-                                    <option label="${item.producer} ${item.name}" value="${item.id}"></option>
-                                </c:forEach>
-                            </select>
+                            <form role="form" method="POST" action="/reservationsbooking" modelAttribute="placebooking" class="form-horizontal" id="placebooking" >
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="bookingDate">Selected pick-up date</label>
+                                    <div class="col-md-6">
+                                        <input value="${bookingDataDTO.bookingDate}" id="bookingDate" type="text" class="form-control input-md" readonly/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="returnDate">Selected return date</label>
+                                    <div class="col-md-6">
+                                        <input value="${bookingDataDTO.returnDate}" id="returnDate" type="text" class="form-control input-md" readonly/>
+                                    </div>
+                                </div>
+
+                                <div class="about-group">
+
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Available cars</label>
+                                        <div class="col-md-6">
+                                            <select class="form-control input-md" id="changeCar">
+                                                <c:forEach items="${listCarTypes}" var="item">
+                                                <option label="${item.producer} ${item.name}" value="${item.id}" onchange="addValues(this)" class="form-control input-md"></option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
                                     </div>
 
-                            </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="gearBox">Gear Box</label>
+                                        <div class="col-md-6">
+                                            <input value="${item.automatic}" id="gearBox" type="text" class="form-control input-md" readonly/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="carType">Car Type</label>
+                                        <div class="col-md-6">
+                                            <input value="${item.type}" id="carType" type="text" class="form-control input-md" readonly/>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </form>
                         </div>
                         <div class="header-para">
                             <div class="categories">

@@ -80,15 +80,4 @@ public class BookingDataDAO {
         logger.info("Retrieved multiple objects, CarTypeData, in the specified interval");
         return carTypeDatas;
     }
-
-    public List getAllCarsAfterTypeID(Set set) {
-        Session session = getSession();
-        String searchQuery = "Select * From CarTypeData WHERE id = (" + set + ")";
-        SQLQuery query = session.createSQLQuery(searchQuery);
-        List<CarTypeData> listCarDataType = query.list();
-
-        logger.info("Retrieved multiple objects, CarTypeData, in the specified interval");
-
-        return listCarDataType;
-    }
 }

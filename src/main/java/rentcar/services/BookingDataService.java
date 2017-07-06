@@ -25,9 +25,4 @@ public class BookingDataService {
     {
         return bookingDataDAO.getAllCarTypesData(excludedCarDatas);
     }
-
-    public List getCarTypeAfterID(Set set)
-    {
-       return bookingDataDAO.getAllCarsAfterTypeID(set);
-    }
 }

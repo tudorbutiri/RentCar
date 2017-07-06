@@ -31,10 +31,4 @@ public class BookingDatesFacade {
     {
         return bookingDataService.getAllCarTypesData(excludedCarDatas);
     }
-
-    public List getCarTypeAfterCarTypeId(Set set)
-    {
-        return bookingDataService.getCarTypeAfterID(set);
-    }
-
 }
