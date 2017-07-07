@@ -10,8 +10,6 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="<c:url value = "resources/js/script.js" />"></script>
-	<script src="<c:url value = "resources/js/superfish.js" />"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -54,33 +52,38 @@
 		<div class="banner-top">
 			<div class="header-bottom">
 				 <div class="header_bottom_right_images">
-				 	<div class="about_wrapper"><h2>Long-Term Business</h2>
+				 	<div class="about_wrapper"><h2>Send us a message</h2>
 					</div>
 		    <div class="section group">
 				<div class="col span_2_of_c">
 				  <div class="contact-form">
 				  	<h3>Contact Us</h3>
-					    <form method="post" action="contact-post.html">
+					  <form role="form" method="POST" action="/contact" modelAttribute="myContactModelAttribute" class="form-horizontal" id="contactForm" name="contactForm" >
+						  <div class="form-group">
+							  <span class="error">${loginSuccessful}</span>
+						  </div>
 					    	<div>
-						    	<span><label>NAME</label></span>
-						    	<span><input name="userName" type="text" class="textbox" required></span>
+						    	<label for="Name">Name</label>
+						    	<input value="${customer.firstName} ${customer.lastName}" id="Name" name="name" type="text" class="form-control" required>
 						    </div>
 						    <div>
-						    	<span><label>E-MAIL</label></span>
-						    	<span><input name="userEmail" type="text" class="textbox" required></span>
+						    	<label for="Email">Email</label>
+						    	<input value="${customer.email}" id="Email" name="email" type="text" class="form-control" required>
 						    </div>
 						    <div>
-						     	<span><label>MOBILE</label></span>
-						    	<span><input name="userPhone" type="text" class="textbox" required></span>
+						     	<label for="Number">Phone Number</label>
+						    	<input value="${customerAddress.phoneNumber}" id="Number" name="phone" type="text" class="form-control" required>
 						    </div>
 						    <div>
-						    	<span><label>SUBJECT</label></span>
-						    	<span><textarea name="userMsg" required> </textarea></span>
+						    	<label for="Subject">Subject</label>
+						    	<textarea id="Subject" name="subject" required></textarea>
 						    </div>
 						   <div>
-						   		<span><input type="submit" value="Submit"></span>
-						  </div>
-					    </form>
+							   <button id="Button Submit" name="Button Submit" class="btn btn-danger" type="submit" onsubmit="">Submit</button>
+						   </div>
+					  </form>
+
+
 				  </div>
   				</div><div class="clear"></div>
 			</div>
@@ -135,6 +138,7 @@
 </div>
 </div>
 </div>
+<script src="<c:url value = "resources/js/password-comparison.js" />"></script>
 </body>
 </html>
 

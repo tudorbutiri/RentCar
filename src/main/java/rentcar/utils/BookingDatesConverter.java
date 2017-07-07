@@ -7,12 +7,11 @@ import rentcar.dto.BookingDataDTO;
 @Service
 public class BookingDatesConverter {
 
-    public BookingData convertBookingDataDTOtoData (BookingDataDTO bookingDataDTO)
+    public BookingData convertBookingDataDatesDTOtoData (BookingDataDTO bookingDataDTO)
     {
         BookingData bookingData = new BookingData();
         bookingData.setBookingDate(bookingDataDTO.getBookingDate());
         bookingData.setReturnDate(bookingDataDTO.getReturnDate());
         return bookingData;
     }
-
 }

@@ -39,6 +39,30 @@ public class BranchData {
             length = 45)
     private String phoneNumber;
 
+    @Column(name = "LATITUDE", updatable = true, nullable = false,
+            length=45)
+    private Double latitude;
+
+    @Column(name = "LONGITUDE", updatable = true, nullable = false,
+            length=45)
+    private Double longitude;
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
     public Integer getId() {
         return id;
     }

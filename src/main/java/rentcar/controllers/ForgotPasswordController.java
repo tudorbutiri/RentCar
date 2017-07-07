@@ -34,13 +34,13 @@ public class ForgotPasswordController {
     CustomerFullDetailsFacade customerFullDetailsFacade;
 
     @RequestMapping(value="/forgotpassword", method = RequestMethod.GET)
-    public ModelAndView getLogin()
+    public ModelAndView getForgotPassword()
     {
         return new ModelAndView("forgotpassword", "forgotPasswordModelAttribute", new CustomerDataDTO());
     }
 
     @RequestMapping(value="/forgotpassword" , method = RequestMethod.POST)
-    public String postLogin(@ModelAttribute("forgotPasswordModelAttribute") CustomerDataDTO customerDataDTO, Model model)
+    public String postForgotPassword(@ModelAttribute("forgotPasswordModelAttribute") CustomerDataDTO customerDataDTO, Model model)
     {
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
 

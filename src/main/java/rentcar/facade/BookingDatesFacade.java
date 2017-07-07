@@ -23,12 +23,18 @@ public class BookingDatesFacade {
 
     public List<CarData> getCarDataFromBookingInterval(BookingDataDTO bookingDataDTO)
     {
-        BookingData bookingData = bookingDatesConverter.convertBookingDataDTOtoData(bookingDataDTO);
+        BookingData bookingData = bookingDatesConverter.convertBookingDataDatesDTOtoData(bookingDataDTO);
         return bookingDataService.getCarDataFromBookingInterval(bookingData);
     }
 
     public List<CarTypeData> getAllCarTypesData(List<CarData> excludedCarDatas)
     {
         return bookingDataService.getAllCarTypesData(excludedCarDatas);
+    }
+
+    public boolean setBooking(BookingDataDTO bookingDataDTO)
+    {
+        BookingData bookingData = bookingDatesConverter.convertBookingDataDatesDTOtoData(bookingDataDTO);
+        return bookingDataService.setBooking(bookingData, bookingDataDTO);
     }
 }

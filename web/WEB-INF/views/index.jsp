@@ -63,15 +63,15 @@
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
                                     <div class="item active">
-                                        <img src="resources/images/bann1.jpg" alt="">
+										<a href="/carselection"><img src="resources/images/bann1.jpg" alt="">
                                     </div>
 
                                     <div class="item">
-                                        <img src="resources/images/bann2.jpg" alt="">
+										<a href="/carselection"><img src="resources/images/bann2.jpg" alt="">
                                     </div>
 
                                     <div class="item">
-                                        <img src="resources/images/bann3.jpg" alt="">
+										<a href="/carselection"><img src="resources/images/bann3.jpg" alt="">
                                     </div>
                                 </div>
 
@@ -104,7 +104,7 @@
 								</div><div class="clear"></div>
 							</div><div class="grid_1_of_3 images_1_of_3">
                                  <div class="grid_1">
-                                     <a href="/reservations"><img src="resources/images/reservationbanner.jpg" title="continue reading" alt=""></a>
+                                     <a href="/reservations"><img src="resources/images/reservationbanner.jpg" title="Reserve your car today!" alt=""></a>
                                      <div class="grid_desc">
                                          <p class="title">Reservations</p>
                                          <p class="title1">Already decided? Don't waste more time and book your dream car today!</p>

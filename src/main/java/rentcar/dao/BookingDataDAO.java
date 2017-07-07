@@ -12,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import rentcar.data.BookingData;
-import rentcar.data.CarData;
-import rentcar.data.CarTypeData;
-import rentcar.data.CustomerData;
+import rentcar.data.*;
 
 import javax.persistence.TemporalType;
 import java.util.*;
@@ -79,5 +76,24 @@ public class BookingDataDAO {
         List<CarTypeData> carTypeDatas = criteria.list();
         logger.info("Retrieved multiple objects, CarTypeData, in the specified interval");
         return carTypeDatas;
+    }
+
+    public boolean setBooking(BookingData bookingData)
+    {
+            Session session = getSession();
+            session.save(bookingData);
+            logger.info("The reservation was successful!");
+            return true;
+    }
+
+    public List<BranchData> getAllBranches()
+    {
+        Session session = getSession();
+        Criteria criteria = session.createCriteria(BranchData.class);
+        List<BranchData> listAllBranches = criteria.list();
+
+        logger.info("Retrieved all Branch objects");
+
+        return listAllBranches;
     }
 }

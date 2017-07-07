@@ -89,7 +89,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="Button Submit"></label>
+                                        <label class="col-md-4 control-label"></label>
                                         <div class="col-md-6">
                                             <span class='text-center'><a href="/forgotpassword" class="text-sm">Forgot Password?</a></span>
                                             <a href="/register" class="col-md-7">Create an account</a>

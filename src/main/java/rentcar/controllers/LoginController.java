@@ -56,11 +56,18 @@ public class LoginController
             //setting the user to the current session
 
             httpSession.setAttribute("customer", customerData);
-            httpSession.setAttribute("customeraddress", customerAddressData);
+            httpSession.setAttribute("customerAddress", customerAddressData);
 
             model.addAttribute("badEmailOrPassword", "Login successful!");
             return "login";
         }
         else return "login";
+    }
+
+    @RequestMapping(value="/logout" , method = RequestMethod.GET)
+    public String getLogOut(HttpSession httpSession)
+    {
+        httpSession.invalidate();
+        return "index";
     }
 }

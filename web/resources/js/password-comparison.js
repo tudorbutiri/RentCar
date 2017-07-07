@@ -29,3 +29,19 @@ function checkPass(input)
         input.setCustomValidity('Password Must be Matching.');
     }
 }
+
+
+$('#changeCar').on('change', function() {
+    $('#carType').val($(this).find(':selected').attr('car-type'));
+    $('#gearBox').val($(this).find(':selected').attr('gear-box'));
+})
+
+// $('#selectAgency').on('change', function() {
+//     $('#branchAgency').val($(this).find(':selected').attr('branch-agency'));
+// })
+
+$('#contactForm').on('submit', function() {
+    $(this).each(function() {
+        this.reset();
+    });
+});

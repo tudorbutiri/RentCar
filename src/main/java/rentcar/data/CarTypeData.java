@@ -20,8 +20,11 @@ public class CarTypeData {
     @Column(name = "TYPE", updatable = true, nullable = false)
     private String type;
 
-    @Column(name = "AUTOMATIC", updatable = true, nullable = false)
-    private String automatic;
+    @Column(name = "GEARBOX", updatable = true, nullable = false)
+    private String gearbox;
+
+    @Column(name = "CARDESC", updatable = true, nullable = false)
+    private String cardesc;
 
     public Integer getId() {
         return id;
@@ -55,11 +58,21 @@ public class CarTypeData {
         this.type = type;
     }
 
-    public String getAutomatic() {
-        return automatic;
+    public String getGearbox() {
+        return gearbox;
     }
 
-    public void setAutomatic(String automatic) {
-        this.automatic = automatic;
+    public void setGearbox(String gearbox) {
+        this.gearbox = gearbox;
     }
+
+    public String getCardesc() {
+        return cardesc;
+    }
+
+    public void setCardesc(String cardesc) {
+        this.cardesc = cardesc;
+    }
+
+
 }

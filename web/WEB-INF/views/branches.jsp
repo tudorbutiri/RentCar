@@ -11,16 +11,10 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <%--<script src="<c:url value = "resources/js/script.js" />"></script>--%>
-    <%--<script src="<c:url value = "resources/js/superfish.js" />"></script>--%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
-
-    <%--google maps api--%>
-
-
 
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -82,65 +76,107 @@
                             </div>
                             <div class="about-group">
 
-                                <div id="map"></div>
-                                <script>
-                                    function initMap() {
-                                        //var myLatLng = {lat: 45.9432, lng: 24.9668};
+                                <div class="container">
+                                    <div class="row-fluid">
+                                        <div class="col-md-8">
 
-                                        var options = {
-                                            zoom: 6,
-                                            center: {lat: 45.9432, lng: 24.9668}
-                                        }
+                                            <div id="map"></div>
+                                            <script>
+                                                function initMap() {
 
-                                        var map = new google.maps.Map(document.getElementById('map'), options);
+                                                    var options = {
+                                                        zoom: 6,
+                                                        center: {lat: 45.9432, lng: 24.9668}
+                                                    }
+                                                    var map = new google.maps.Map(document.getElementById('map'), options);
+
+                                                    //Add marker function
 
 
-                                        // add marker
-//                                        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-//                                        var marker = new google.maps.Marker({
-//                                            position: myLatLng,
-//                                            map: map,
-//                                            icon:image
-//                                        });
+//                                                    addMarker({
+//                                                        coords:{lat: allBranches.get(0).latitude, lng: allBranches.get(0).longitude},
+//                                                        content:'<h3>Apare?</h3>'});
+//                                                    addMarker({coords:{lat: 45.7489, lng: 21.2087}});
+//                                                    addMarker({coords:{lat: 47.1585, lng: 27.6014}});
+//                                                    addMarker({coords:{lat: 44.4268, lng: 26.1025}});
 //
+                                                    <%--var listBranchesJS = [--%>
+                                                        <%--<c:forEach var="item" items="${allBranches}">--%>
+                                                        <%--<c:out value="${item}"/>,--%>
+                                                        <%--</c:forEach>--%>
+                                                    <%--];--%>
 
 
 
-                                        //Add marker function
+                                                    addMarker({
+                                                        coords:{lat: ${allBranches.get(0).latitude}, lng: ${allBranches.get(0).longitude}},
+                                                        content:'<h6>${allBranches.get(0).name}</h6>'});
 
-                                            addMarker({
-                                                coords:{lat: 46.7712, lng: 23.6236},
-                                                content:'<h1>Apare?</h1>'});
-                                            addMarker({coords:{lat: 45.7489, lng: 21.2087}});
-                                            addMarker({coords:{lat: 47.1585, lng: 27.6014}});
-                                            addMarker({coords:{lat: 44.4268, lng: 26.1025}});
+                                                    addMarker({
+                                                        coords:{lat: ${allBranches.get(1).latitude}, lng: ${allBranches.get(1).longitude}},
+                                                        content:'<h6>${allBranches.get(1).name}</h6>'});
 
-                                            function addMarker(props){
-                                            var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-                                            var marker = new google.maps.Marker({
-                                            position: props.coords,
-                                            map: map,
-                                            icon:image
-                                        });
+                                                    addMarker({
+                                                        coords:{lat: ${allBranches.get(2).latitude}, lng: ${allBranches.get(2).longitude}},
+                                                        content:'<h6>${allBranches.get(2).name}</h6>'});
 
-                                                if(props.content){
-                                                    var infoWindow = new google.maps.InfoWindow({
-                                                        content:props.content
-                                                });
+                                                    addMarker({
+                                                        coords:{lat: ${allBranches.get(3).latitude}, lng: ${allBranches.get(3).longitude}},
+                                                        content:'<h6>${allBranches.get(3).name}</h6>'});
 
-                                                    marker.addListener('click', function(){
-                                                infoWindow.open(map, marker);
-                                        });
-                                    }}}
-                                </script>
+                                                    addMarker({
+                                                        coords:{lat: ${allBranches.get(4).latitude}, lng: ${allBranches.get(4).longitude}},
+                                                        content:'<h6>${allBranches.get(4).name}</h6>'});
 
-                                <script async defer
-                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHO6a5zUCX1qErzPlgmJEVN_2BMG-W5tE&callback=initMap">
-                                </script>
+                                                    addMarker({
+                                                        coords:{lat: ${allBranches.get(5).latitude}, lng: ${allBranches.get(5).longitude}},
+                                                        content:'<h6>${allBranches.get(5).name}</h6>'});
 
+                                                    var currWindow = false;
 
+                                                    function addMarker(props){
+                                                        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+                                                        var marker = new google.maps.Marker({
+                                                            position: props.coords,
+                                                            map: map,
+                                                            icon:image
+                                                        });
+                                                        if(props.content)
+                                                            var infoWindow = new google.maps.InfoWindow({
+                                                                content:props.content
+                                                            });
+                                                            marker.addListener('click', function(){
+                                                                if( currWindow ) {
+                                                                    currWindow.close();
+                                                                }
+                                                                currWindow = infoWindow;
+                                                                infoWindow.open(map, marker);
+                                                                map.setZoom(14);
+                                                                map.setCenter(marker.getPosition());
+                                                            });
+                                                        }}
+                                            </script>
+                                            <script async defer
+                                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHO6a5zUCX1qErzPlgmJEVN_2BMG-W5tE&callback=initMap">
+                                            </script>
 
+                                        </div>
 
+                                        <c:forEach items="${allBranches}" var="item">
+                                            <div class="col-md-3">
+                                                <address>
+                                                    <strong>${item.agency.name}</strong><br>
+                                                    Branch: ${item.name}<br>
+                                                    City: ${item.cityName}<br>
+                                                    Address:${item.streetName}, ${item.streetNumber}<br>
+                                                    Postal code: ${item.postalCode}<br>
+                                                    Phone Number: ${item.phoneNumber}<br>
+                                                    Romania<br>
+                                                </address>
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+                                </div>
                             </div>
                     </div>
                     <div class="header-para">

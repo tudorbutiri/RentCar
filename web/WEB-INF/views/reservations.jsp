@@ -16,8 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
     <script src="<c:url value = "resources/js/datepicker.js" />"></script>
-
-    <script src="<c:url value = "resources/js/superfish.js" />"></script>
+    <%--<script src="<c:url value = "resources/js/superfish.js" />"></script>--%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -63,6 +62,11 @@
                             <div class="about_wrapper"><h2>Car Reservations</h2>
                             </div>
                             <form role="form" method="POST" action="/reservations" modelAttribute="availableCarsModelAttribute" class="form-horizontal" id="submitForm" >
+
+                                <div class="form-group">
+                                    <span class="error">${loginSuccessful}</span>
+                                </div>
+
                                 <div class="about-group">
                                     <span>Pick-up date</span>
                                     <div class="container">
@@ -88,6 +92,17 @@
                                                     </span>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Pick-up Branch</label>
+                                        <div class="col-md-6">
+                                            <select class="form-control input-md" id="selectBranch">
+                                                <c:forEach items="${allBranches}" var="item">
+                                                    <option label="${item.name}" value="${item.id}" name="id" class="form-control input-md"></option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -122,6 +137,13 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="name">Car be picked from</label>
+                                    <div class="col-md-6">
+                                        <input value="${branchDataDTO.name}" id="name" type="text" class="form-control input-md" readonly/>
+                                    </div>
+                                </div>
+
                                 <div class="about-group">
 
 
@@ -131,18 +153,16 @@
                                         <div class="col-md-6">
                                             <select class="form-control input-md" id="changeCar">
                                                 <c:forEach items="${listCarTypes}" var="item">
-                                                <option label="${item.producer} ${item.name}" value="${item.id}" onchange="addValues(this)" class="form-control input-md"></option>
+                                                <option label="${item.producer} ${item.name}" car-type="${item.type}" gear-box="${item.gearbox}" value="${item.id}" onchange="addValues(this)" class="form-control input-md"></option>
                                                 </c:forEach>
                                             </select>
                                         </div>
                                     </div>
 
-
-
                                     <div class="form-group">
                                         <label class="col-md-2 control-label" for="gearBox">Gear Box</label>
                                         <div class="col-md-6">
-                                            <input value="${item.automatic}" id="gearBox" type="text" class="form-control input-md" readonly/>
+                                            <input value="${item.gearBox}" id="gearBox" type="text" class="form-control input-md" readonly/>
                                         </div>
                                     </div>
 
@@ -153,7 +173,10 @@
                                         </div>
                                     </div>
 
-
+                                    <label class="col-md-6 control-label" for="Button Sub"></label>
+                                    <div class="col-md-4">
+                                        <button id="Button Sub" name="Button Submit" class="btn btn-danger" type="submit">Book a car</button>
+                                    </div>
 
                                 </div>
                             </form>
@@ -207,6 +230,9 @@
         </div>
     </div>
 </div>
+
+<script src="<c:url value = "resources/js/password-comparison.js" />"></script>
+
 </body>
 </html>
 

@@ -1,19 +1,22 @@
 package rentcar.controllers;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpSession;
+//Info pages were merged into one controller class
 
 @Controller
-public class ArticlesController {
+public class RelatedSiteInfoController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ArticlesController.class);
+    //About section
+    @RequestMapping(value="/about" , method = RequestMethod.GET)
+    public String getRegister()
+    {
+        return "about";
+    }
 
+    //Articles section
     @RequestMapping(value="/articles", method= RequestMethod.GET)
     public String getArticlesPage()
     {
@@ -36,5 +39,19 @@ public class ArticlesController {
     public String getArticlePrimeLuxury()
     {
         return "primeluxury";
+    }
+
+    //FAQ section
+    @RequestMapping(value="/faq", method= RequestMethod.GET)
+    public String getFAQpage()
+    {
+        return "faq";
+    }
+
+    //Terms and conditions
+    @RequestMapping(value = "/terms", method = RequestMethod.GET)
+    public String getTermsConditionsPage()
+    {
+        return "terms";
     }
 }
