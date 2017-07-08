@@ -29,13 +29,10 @@ public class BookingDataService {
         return bookingDataDAO.getAllCarTypesData(excludedCarDatas);
     }
 
-    public boolean setBooking(BookingData bookingData, BookingDataDTO bookingDataDTO)
+    public boolean setBooking(BookingData bookingData)
     {
-        BookingData bookingData1 = new BookingData();
-        bookingData.setCustomer(bookingDataDTO.getCustomer());
-        bookingData.setAgency(bookingDataDTO.getAgency());
-        bookingData.setCar(bookingData.getCar());
-        return bookingDataDAO.setBooking(bookingData1);
+
+        return bookingDataDAO.setBooking(bookingData);
     }
 
     public List<BranchData> getAllBranches()

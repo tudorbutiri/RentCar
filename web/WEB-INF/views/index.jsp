@@ -63,15 +63,15 @@
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
                                     <div class="item active">
-										<a href="/carselection"><img src="resources/images/bann1.jpg" alt="">
+										<a href="/carselection"/><img src="resources/images/bann1.jpg" alt="">
                                     </div>
 
                                     <div class="item">
-										<a href="/carselection"><img src="resources/images/bann2.jpg" alt="">
+										<a href="/carselection"/><img src="resources/images/bann2.jpg" alt="">
                                     </div>
 
                                     <div class="item">
-										<a href="/carselection"><img src="resources/images/bann3.jpg" alt="">
+										<a href="/carselection"/><img src="resources/images/bann3.jpg" alt="">
                                     </div>
                                 </div>
 

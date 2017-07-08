@@ -21,7 +21,7 @@ import java.util.*;
 @Transactional
 public class BookingDataDAO {
 
-    private static final Logger logger = LoggerFactory.getLogger(BookingData.class);
+    private static final Logger logger = LoggerFactory.getLogger(BookingDataDAO.class);
 
     @Autowired
     private HibernateTemplate hibernateTemplate;
@@ -37,9 +37,7 @@ public class BookingDataDAO {
         criteria.add(Restrictions.gt("returnDate", bookingData.getBookingDate()));
         criteria.setProjection(Projections.property("car"));
         List<CarData> bookingsInTheInterval = criteria.list();
-
         logger.info("Retrieved multiple objects, BookingData, in the specified interval");
-
         return bookingsInTheInterval;
     }
 
@@ -91,9 +89,7 @@ public class BookingDataDAO {
         Session session = getSession();
         Criteria criteria = session.createCriteria(BranchData.class);
         List<BranchData> listAllBranches = criteria.list();
-
         logger.info("Retrieved all Branch objects");
-
         return listAllBranches;
     }
 }

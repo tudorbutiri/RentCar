@@ -12,6 +12,9 @@ public class BookingDatesConverter {
         BookingData bookingData = new BookingData();
         bookingData.setBookingDate(bookingDataDTO.getBookingDate());
         bookingData.setReturnDate(bookingDataDTO.getReturnDate());
+        bookingData.setCustomer(bookingDataDTO.getCustomer());
+        bookingData.setCar(bookingDataDTO.getCar());
+        bookingData.setAgency(bookingDataDTO.getBranchData().getAgency());
         return bookingData;
     }
 }

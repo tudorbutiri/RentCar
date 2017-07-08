@@ -36,27 +36,34 @@ public class ForgotPasswordController {
     @RequestMapping(value="/forgotpassword", method = RequestMethod.GET)
     public ModelAndView getForgotPassword()
     {
-        return new ModelAndView("forgotpassword", "forgotPasswordModelAttribute", new CustomerDataDTO());
+        ModelAndView page = new ModelAndView();
+        page.addObject("forgotPasswordModelAttribute", new CustomerDataDTO());
+        page.setViewName("forgotpassword");
+        return page;
     }
 
     @RequestMapping(value="/forgotpassword" , method = RequestMethod.POST)
-    public String postForgotPassword(@ModelAttribute("forgotPasswordModelAttribute") CustomerDataDTO customerDataDTO, Model model)
+    public ModelAndView postForgotPassword(@ModelAttribute("forgotPasswordModelAttribute") CustomerDataDTO customerDataDTO)
     {
+        ModelAndView page = new ModelAndView();
+
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
 
         //checks if the user and pass match to an existing record from DB
-        boolean advEmail = loginUserFacade.checkCustomerEmailData(customerData, model);
+        boolean advEmail = loginUserFacade.checkCustomerEmailData(customerData);
         if (advEmail == true)
         {
             //setting the user to the current session
             customerFullDetailsFacade.updateCustomerDataPassword(customerDataDTO, customerData);
-
-            model.addAttribute("loginSuccessful", "Password has been updated successfuly!");
-            return "forgotpassword";
+            page.addObject("loginSuccessful", "Password has been updated successfuly!");
+            page.setViewName("forgotpassword");
+            return page;
         }
         else
         {
-            return "forgotpassword";
+            page.addObject("badEmailOrPassword", "Email address is not valid!");
+            page.setViewName("forgotpassword");
+            return page;
         }
     }
 

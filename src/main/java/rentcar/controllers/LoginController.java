@@ -40,16 +40,21 @@ public class LoginController
     @RequestMapping(value="/login" , method = RequestMethod.GET)
     public ModelAndView getLogin()
     {
-        return new ModelAndView("login", "loginDataModelAttribute", new CustomerDataDTO());
+        ModelAndView page = new ModelAndView();
+        page.addObject("loginDataModelAttribute", new CustomerDataDTO());
+        page.setViewName("login");
+        return page;
     }
 
     @RequestMapping(value="/login" , method = RequestMethod.POST)
-    public String postLogin(@ModelAttribute("loginDataModelAttribute") CustomerDataDTO customerDataDTO, Model model, HttpSession httpSession)
+    public ModelAndView postLogin(@ModelAttribute("loginDataModelAttribute") CustomerDataDTO customerDataDTO, HttpSession httpSession)
     {
+        ModelAndView page = new ModelAndView();
+
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
 
         //checks if the user and pass match to an existing record from DB
-        boolean advLogin = loginUserFacade.checkCustomerLoginData(customerDataDTO, customerData, model);
+        boolean advLogin = loginUserFacade.checkCustomerLoginData(customerDataDTO, customerData);
         if (advLogin == true)
         {
             CustomerAddressData customerAddressData = addCustomerDataService.getCustomerAddressDataAfterCustomerID(customerData.getId());
@@ -58,16 +63,24 @@ public class LoginController
             httpSession.setAttribute("customer", customerData);
             httpSession.setAttribute("customerAddress", customerAddressData);
 
-            model.addAttribute("badEmailOrPassword", "Login successful!");
-            return "login";
+            page.addObject("badEmailOrPassword", "Login successful!");
+            page.setViewName("login");
+            return page;
         }
-        else return "login";
+        else
+        {
+            page.addObject("badEmailOrPassword", "Email or Password are incorrect!");
+            page.setViewName("login");
+            return page;
+        }
     }
 
     @RequestMapping(value="/logout" , method = RequestMethod.GET)
-    public String getLogOut(HttpSession httpSession)
+    public ModelAndView getLogOut(HttpSession httpSession)
     {
         httpSession.invalidate();
-        return "index";
+        ModelAndView page = new ModelAndView();
+        page.setViewName("index");
+        return page;
     }
 }

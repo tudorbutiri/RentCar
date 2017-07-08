@@ -35,6 +35,6 @@ public class BookingDatesFacade {
     public boolean setBooking(BookingDataDTO bookingDataDTO)
     {
         BookingData bookingData = bookingDatesConverter.convertBookingDataDatesDTOtoData(bookingDataDTO);
-        return bookingDataService.setBooking(bookingData, bookingDataDTO);
+        return bookingDataService.setBooking(bookingData);
     }
 }

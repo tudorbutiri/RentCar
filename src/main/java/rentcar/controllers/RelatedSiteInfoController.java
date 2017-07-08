@@ -3,6 +3,7 @@ package rentcar.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 //Info pages were merged into one controller class
 
@@ -11,47 +12,47 @@ public class RelatedSiteInfoController {
 
     //About section
     @RequestMapping(value="/about" , method = RequestMethod.GET)
-    public String getRegister()
+    public ModelAndView getRegister()
     {
-        return "about";
+        return new ModelAndView("about");
     }
 
     //Articles section
     @RequestMapping(value="/articles", method= RequestMethod.GET)
-    public String getArticlesPage()
+    public ModelAndView getArticlesPage()
     {
-        return "articles";
+        return new ModelAndView("articles");
     }
 
     @RequestMapping(value="/reasons", method = RequestMethod.GET)
-    public String getArticleReasons()
+    public ModelAndView getArticleReasons()
     {
-        return "articlesreasons";
+        return new ModelAndView("articlesreasons");
     }
 
     @RequestMapping(value="/pickluxury", method= RequestMethod.GET)
-    public String getArticleLuxury()
+    public ModelAndView getArticleLuxury()
     {
-        return "pickluxury";
+        return new ModelAndView("pickluxury");
     }
 
     @RequestMapping(value="primeluxury", method = RequestMethod.GET)
-    public String getArticlePrimeLuxury()
+    public ModelAndView getArticlePrimeLuxury()
     {
-        return "primeluxury";
+        return new ModelAndView("primeluxury");
     }
 
     //FAQ section
     @RequestMapping(value="/faq", method= RequestMethod.GET)
-    public String getFAQpage()
+    public ModelAndView getFAQpage()
     {
-        return "faq";
+        return new ModelAndView("faq");
     }
 
     //Terms and conditions
     @RequestMapping(value = "/terms", method = RequestMethod.GET)
-    public String getTermsConditionsPage()
+    public ModelAndView getTermsConditionsPage()
     {
-        return "terms";
+        return new ModelAndView("terms");
     }
 }

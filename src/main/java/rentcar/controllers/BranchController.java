@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import rentcar.data.BranchData;
-import rentcar.facade.BookingDatesFacade;
 import rentcar.services.BranchDataService;
 
 import javax.servlet.http.HttpSession;
@@ -23,13 +23,14 @@ public class BranchController {
     BranchDataService branchDataService;
 
     @RequestMapping(value="/branches" , method = RequestMethod.GET)
-    public String getReservationView(Model model, HttpSession httpSession)
+    public ModelAndView getReservationView()
     {
         List<BranchData> branchData = branchDataService.getAllBranchData();
-        model.addAttribute("allBranches", branchData);
-        model.addAttribute("sizeAllBranches", branchData.size());
-        System.out.println(branchData.size());
 
-        return "branches";
+        ModelAndView page = new ModelAndView();
+        page.addObject("allBranches", branchData);
+        page.addObject("sizeAllBranches", branchData.size());
+        page.setViewName("branches");
+        return page;
     }
 }

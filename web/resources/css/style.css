@@ -535,9 +535,9 @@ span.actual {
 	letter-spacing: -1px;
 }
 .span_2_of_3  p  {
-	font-size:0.8125em;
-	padding:0.3em 0;
-	color: #333;
+	/*font-size:0.8125em;*/
+	/*padding:0.3em 0;*/
+	/*color: #333;*/
 	line-height: 1.6em;
 }
 /***** Media Quries *****/

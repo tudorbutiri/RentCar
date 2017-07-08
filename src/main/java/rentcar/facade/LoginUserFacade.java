@@ -5,27 +5,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import rentcar.data.CustomerData;
 import rentcar.dto.CustomerDataDTO;
-import rentcar.services.LoginUserService;
-import rentcar.utils.CustomerFullDetailsConverter;
+import rentcar.utils.LoginUserValidator;
 
 @Service
 public class LoginUserFacade {
 
     @Autowired
-    LoginUserService logInUserService;
+    LoginUserValidator logInUserValidator;
 
-    @Autowired
-    CustomerFullDetailsConverter customerFullDetailsConverter;
-
-
-    public boolean checkCustomerLoginData(CustomerDataDTO customerDataDTO, CustomerData customerData, Model model)
+    public boolean checkCustomerLoginData(CustomerDataDTO customerDataDTO, CustomerData customerData)
     {
-        return logInUserService.checkLoginRegistrationCredentials(customerDataDTO, customerData, model);
+        return logInUserValidator.checkLoginRegistrationCredentials(customerDataDTO, customerData);
     }
 
-    public boolean checkCustomerEmailData (CustomerData customerData, Model model)
+    public boolean checkCustomerEmailData (CustomerData customerData)
     {
-        return logInUserService.checkEmailForgotPassword(customerData, model);
+        return logInUserValidator.checkEmailForgotPassword(customerData);
     }
 
 }

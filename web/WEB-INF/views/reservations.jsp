@@ -98,9 +98,9 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Pick-up Branch</label>
                                         <div class="col-md-6">
-                                            <select class="form-control input-md" id="selectBranch">
+                                            <select class="form-control input-md" id="selectBranch" name="branchData.id">
                                                 <c:forEach items="${allBranches}" var="item">
-                                                    <option label="${item.name}" value="${item.id}" name="id" class="form-control input-md"></option>
+                                                    <option value="${item.id}" class="form-control input-md">${item.name}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
@@ -122,25 +122,28 @@
 
 
                             <form role="form" method="POST" action="/reservationsbooking" modelAttribute="placebooking" class="form-horizontal" id="placebooking" >
+                                <input type="hidden" name="branchData.agency.id" value="${bookingDataDTO.branchData.agency.id}"/>
 
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="bookingDate">Selected pick-up date</label>
                                     <div class="col-md-6">
-                                        <input value="${bookingDataDTO.bookingDate}" id="bookingDate" type="text" class="form-control input-md" readonly/>
+                                        <fmt:formatDate value="${bookingDataDTO.returnDate}"  pattern="MM/dd/yyyy hh:mm a" var="formattedBooking"/>
+                                        <input value="${formattedBooking}" id="bookingDate" type="datetime" name="bookingDate" class="form-control input-md" readonly/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="returnDate">Selected return date</label>
                                     <div class="col-md-6">
-                                        <input value="${bookingDataDTO.returnDate}" id="returnDate" type="text" class="form-control input-md" readonly/>
+                                        <fmt:formatDate value="${bookingDataDTO.returnDate}"  pattern="MM/dd/yyyy hh:mm a" var="formattedReturn"/>
+                                        <input value="${formattedReturn}" id="returnDate" type="datetime" name="returnDate" class="form-control input-md" readonly/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="name">Car be picked from</label>
                                     <div class="col-md-6">
-                                        <input value="${branchDataDTO.name}" id="name" type="text" class="form-control input-md" readonly/>
+                                        <input value="${bookingDataDTO.branchData.name}" id="name" type="text" class="form-control input-md" readonly/>
                                     </div>
                                 </div>
 
@@ -151,9 +154,9 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Available cars</label>
                                         <div class="col-md-6">
-                                            <select class="form-control input-md" id="changeCar">
+                                            <select class="form-control input-md" id="changeCar" name="car.id">
                                                 <c:forEach items="${listCarTypes}" var="item">
-                                                <option label="${item.producer} ${item.name}" car-type="${item.type}" gear-box="${item.gearbox}" value="${item.id}" onchange="addValues(this)" class="form-control input-md"></option>
+                                                <option label="${item.producer} ${item.name}" car-type="${item.type}" gear-box="${item.gearbox}" car-img="${item.id}" car-desc="${item.name}" value="${item.id}" onchange="addValues(this)" class="form-control input-md"></option>
                                                 </c:forEach>
                                             </select>
                                         </div>
@@ -216,6 +219,13 @@
                                 </div>
 
                                 <div class="clear"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <img class="selectedCarImage" src="" alt="Please select a fucking car!!"/>
+                                    </div>
+                                    <div class="col-md-12 selectedCarDesc">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="clear"></div>

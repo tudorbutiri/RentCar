@@ -70,41 +70,37 @@
 			  	<%--<button class="btn btn-6 btn-6a">Read More</button> --%>
 			   <div class="carsgeneralpresentation">
 						<h2>Luxury and Exotic Cars</h2>
-						<p>Below you will be able to see some of the most popular luxury cars you will be able to rent from Sixt.</p>
+						<p>Below you will be able to see some of the most popular luxury cars you will be able to rent from ELCAR.</p>
 					    <div class="section group">
-							<div class="grid_1_of_3 images_1_of_3">
+							<a href="/carselection"><div class="grid_1_of_3 images_1_of_3">
 								  <h3>Mercedes Benz S-Class</h3>
-								  <img src="resources/images/mercedesBenzSClass.png" alt=""/>
-
-							</div>
-							<div class="grid_1_of_3 images_1_of_3">
+								  <img src="resources/images/mercedesBenzSClass.png" alt="">
+							</div></a>
+							<a href="/carselection"><div class="grid_1_of_3 images_1_of_3">
 								<h3>BMW 6 Series</h3>
 								<img src="resources/images/bmw6Series.png" alt=""/>
-							</div>
-							<div class="grid_1_of_3 images_1_of_3">
+							</div></a>
+							<a href="/carselection"><div class="grid_1_of_3 images_1_of_3">
 								<h3>Mercedes Benz G-Class </h3>
-								<img src="resources/images/mercedesBenzGClass.png" alt=""/>
-							</div><div class="clear"></div>
+								<img src="resources/images/mercedesBenzGClass.png" alt="">
+							</div></a><div class="clear"></div>
 				        </div>
 				  </div>
 						<div class="carsgeneralpresentation">
 							<p>If you would like to make heads turn while you are traveling, ELCAR also offers exotic vehicles at certain locations.</p>
 							<div class="section group">
-								<div class="grid_1_of_3 images_1_of_3">
+								<a href="/carselection"><div class="grid_1_of_3 images_1_of_3">
 									<h3>Mercedes Benz SLK</h3>
 									<img src="resources/images/mercedesBenzSlk.png" alt=""/>
-
-								</div>
-								<div class="grid_1_of_3 images_1_of_3">
+								</div></a>
+								<a href="/carselection"><div class="grid_1_of_3 images_1_of_3">
 									<h3>Range Rover Evoque</h3>
 									<img src="resources/images/rangeRoverEvoque.jpg" alt=""/>
-
-								</div>
-								<div class="grid_1_of_3 images_1_of_3">
+								</div></a>
+								<a href="/carselection"><div class="grid_1_of_3 images_1_of_3">
 									<h3>Jaguar F-Type </h3>
 									<img src="resources/images/jaguarFType.png" alt=""/>
-									<%--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>--%>
-								</div><div class="clear"></div>
+								</div></a><div class="clear"></div>
 							</div>
 						</div>
 

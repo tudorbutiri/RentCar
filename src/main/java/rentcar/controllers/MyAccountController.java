@@ -24,25 +24,23 @@ public class MyAccountController {
 
     private static final Logger logger = LoggerFactory.getLogger(MyAccountController.class);
 
-    @Autowired
-    AddCustomerDataService addCustomerDataService;
-
-    @Autowired
-    CustomerFullDetailsFacade customerFullDetailsFacade;
-
     @RequestMapping(value="/myaccount" , method = RequestMethod.GET)
-    public String getRegister(Model model, HttpSession httpSession)
+    public ModelAndView getRegister(HttpSession httpSession)
     {
+        ModelAndView page = new ModelAndView();
+
         if ((httpSession.getAttribute("customer") == null) ||(httpSession.getAttribute("customerAddress") == null))
         {
-            model.addAttribute("badEmailOrPassword", "Please login or create a user in order to access the account page");
-            return "login";
+            page.addObject("badEmailOrPassword", "Please login or create a user in order to access the account page");
+            page.setViewName("login");
+            return page;
         }
         else
         {
-            model.addAttribute("customer",  httpSession.getAttribute("customer"));
-            model.addAttribute("customerAddress", httpSession.getAttribute("customerAddress"));
-            return "myaccount";
+            page.addObject("customer",  httpSession.getAttribute("customer"));
+            page.addObject("customerAddress", httpSession.getAttribute("customerAddress"));
+            page.setViewName("myaccount");
+            return page;
         }
     }
 }

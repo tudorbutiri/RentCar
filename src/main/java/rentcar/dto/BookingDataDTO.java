@@ -1,7 +1,9 @@
 package rentcar.dto;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
 import rentcar.data.AgencyData;
+import rentcar.data.BranchData;
 import rentcar.data.CarData;
 import rentcar.data.CustomerData;
 
@@ -12,9 +14,17 @@ public class BookingDataDTO {
     private Date bookingDate;
     private Date returnDate;
     private CustomerData customer;
+    private BranchData branchData;
     private AgencyData agency;
     private CarData car;
 
+    public BranchData getBranchData() {
+        return branchData;
+    }
+
+    public void setBranchData(BranchData branchData) {
+        this.branchData = branchData;
+    }
 
     public Date getBookingDate() {
         return bookingDate;

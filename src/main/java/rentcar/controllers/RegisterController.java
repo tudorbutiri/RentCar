@@ -40,24 +40,24 @@ public class RegisterController{
     @Autowired
     CustomerFullDetailsFacade customerFullDetailsFacade;
 
-    @Autowired
-    LoginCredentialsValidator loginCredentialsValidator;
-
-    @Autowired
-    CustomerDataLoginValidator customerDataLoginValidator;
-
     @RequestMapping(value="/register" , method = RequestMethod.GET)
     public ModelAndView getRegister()
     {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("customer", new CustomerDataDTO());
-        map.put("customerAddress", new CustomerAddressDataDTO());
-        return new ModelAndView("register", "registerModelAttribute", map);
+        ModelAndView page = new ModelAndView();
+        page.addObject("customer", new CustomerDataDTO());
+        page.addObject("customerAddress", new CustomerAddressDataDTO());
+        page.setViewName("register");
+        return page;
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        map.put("customer", new CustomerDataDTO());
+//        map.put("customerAddress", new CustomerAddressDataDTO());
+//        return new ModelAndView("register", "registerModelAttribute", map);
     }
 
     @RequestMapping(value="/register" , method = RequestMethod.POST)
-    public String postRegister(@ModelAttribute("registerModelAttribute") CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO, Model model)
+    public ModelAndView postRegister(@ModelAttribute("registerModelAttribute") CustomerDataDTO customerDataDTO, CustomerAddressDataDTO customerAddressDataDTO)
     {
+        ModelAndView page = new ModelAndView();
         CustomerData customerData = addCustomerDataService.getCustomerAfterEmail(customerDataDTO.getEmail());
 
         //checks if there is an already registered user with the selected email address
@@ -66,13 +66,15 @@ public class RegisterController{
             customerFullDetailsFacade.addCustomerData(customerDataDTO);
             customerFullDetailsFacade.addCustomerAddressData(customerAddressDataDTO, customerDataDTO);
 
-            model.addAttribute("loginSuccessful", "Account has been created. You can now login into the application!");
-            return "register";
+            page.addObject("loginSuccessful", "Account has been created. You can now login into the application!");
+            page.setViewName("register");
+            return page;
         }
         else
         {
-            model.addAttribute("emailNotAvailable", "Email address is unavailable");
-            return "register";
+            page.addObject("emailNotAvailable", "Email address is unavailable");
+            page.setViewName("register");
+            return page;
         }
     }
 }

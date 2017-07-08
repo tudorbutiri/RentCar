@@ -34,9 +34,7 @@ public class BranchDataDAO {
         Session session = getSession();
         Criteria criteria = session.createCriteria(BranchData.class);
         List<BranchData> allBranches = criteria.list();
-
         logger.info("Retrieved multiple objects, BookingData, in the specified interval");
-
         return allBranches;
     }
 

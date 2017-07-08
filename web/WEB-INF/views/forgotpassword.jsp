@@ -9,8 +9,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="<c:url value = "resources/js/script.js" />"></script>
-    <script src="<c:url value = "resources/js/superfish.js" />"></script>
     <script src="<c:url value = "resources/js/password-comparison.js" />"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -44,7 +42,7 @@
                             <li><a href="/index">Home</a></li>
                             <li><a href="/about">About</a></li>
                             <li><a href="/carselection">Car Selection</a></li>
-                            <li><a href ="/reservations">Reservations</a></li>
+                            <li><a href="/reservations">Reservations</a></li>
                             <li><a href="/articles">Articles</a></li>
                             <li><a href="/contact">Contact</a></li>
                         </ul>
@@ -54,7 +52,7 @@
                 <div class="banner-top">
                     <div class="header-bottom">
                         <div class="header_bottom_right_images">
-                            <form role="form" data-toggle="validator" method="POST" action="/forgotpassword" modelAttribute="forgotPasswordModelAttribute" class="form-horizontal" id="submitForm" >
+                            <form role="form" method="POST" action="/forgotpassword" modelAttribute="forgotPasswordModelAttribute" class="form-horizontal" id="submitForm" >
 
                                 <fieldset>
                                     <!-- Form Name -->
@@ -68,7 +66,7 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="email">Email</label>
                                         <div class="col-md-6">
-                                            <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="" />
+                                            <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required/>
                                             <span class="error">${emailNotAvailable}</span>
                                         </div>
                                     </div>
@@ -77,7 +75,7 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="password">Password</label>
                                         <div class="col-md-6">
-                                            <input id="password" name="password" type="password" placeholder="Enter Password" class="form-control" required=""/>
+                                            <input id="password" name="password" type="password" placeholder="Enter Password" class="form-control" required/>
                                         </div>
                                     </div>
 
@@ -85,7 +83,7 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="retypePassword">Re-type Password</label>
                                         <div class="col-md-6">
-                                            <input type="password" class="form-control" id="retypePassword" placeholder="Confirm Password"  oninput="checkPass(this)" required="">
+                                            <input type="password" class="form-control" id="retypePassword" placeholder="Confirm Password"  oninput="checkPass(this)" required>
                                             <span id="confirmMessage" class="confirmMessage"></span>
                                         </div>
                                     </div>
@@ -94,12 +92,12 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="Button Submit"></label>
                                         <div class="col-md-4">
-                                            <button id="Button Submit" name="Button Submit" class="btn btn-success" type="submit">Submit</button>
+                                            <button id="Button Submit" name="Button Submit" class="btn btn-danger" type="submit">Submit</button>
                                         </div>
                                     </div>
                                 </fieldset>
                             </form>
-
+                            </div>
 
                             <div class="header-para">
                                 <div class="categories">

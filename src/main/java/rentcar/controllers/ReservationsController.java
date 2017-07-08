@@ -3,12 +3,16 @@ package rentcar.controllers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import rentcar.dao.BranchDataDAO;
 import rentcar.data.BranchData;
 import rentcar.data.CarData;
 import rentcar.data.CarTypeData;
@@ -20,6 +24,8 @@ import rentcar.services.BookingDataService;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -34,7 +40,7 @@ public class ReservationsController {
     BookingDataService bookingDataService;
 
     @RequestMapping(value="/reservations" , method = RequestMethod.GET)
-    public ModelAndView getReservationView(Model model, HttpSession httpSession)
+    public ModelAndView getReservationView(HttpSession httpSession)
     {
         ModelAndView returnPage = new ModelAndView();
 
@@ -64,11 +70,14 @@ public class ReservationsController {
         List<CarTypeData> carTypeDatas = bookingDatesFacade.getAllCarTypesData(unavailableCarDatas);
         List<BranchData> allBranches = bookingDataService.getAllBranches();
 
-        System.out.println(bookingDataDTO.getAgency().getName());
-        System.out.println(bookingDataDTO.getCar().getDateOfManufacturing());
-        System.out.println(bookingDataDTO.getCustomer().getFirstName());
-        System.out.println("aici" + branchDataDTO.getName());
 
+        if(bookingDataDTO.getBranchData() != null && bookingDataDTO.getBranchData().getId() != null){
+            for(BranchData branch : allBranches){
+                if(branch.getId().equals(bookingDataDTO.getBranchData().getId())) {
+                    bookingDataDTO.setBranchData(branch);
+                }
+            }
+        }
 
         returnPage.addObject("allBranches", allBranches);
         returnPage.addObject("listCarTypes", carTypeDatas);
@@ -81,17 +90,21 @@ public class ReservationsController {
     }
 
     @RequestMapping(value="/reservationsbooking", method = RequestMethod.POST)
-    public String postReservationBooking(@ModelAttribute("placebooking") BookingDataDTO bookingDataDTO, HttpSession httpSession, Model model)
+    public ModelAndView postReservationBooking(@ModelAttribute("placebooking") BookingDataDTO bookingDataDTO, HttpSession session)
     {
+        ModelAndView page = new ModelAndView();
+        bookingDataDTO.setCustomer((CustomerData)session.getAttribute("customer"));
         if (bookingDatesFacade.setBooking(bookingDataDTO))
         {
-            model.addAttribute("loginSuccessful", "The reservation was successful!");
-            return "reservations";
+            page.addObject("loginSuccessful", "The reservation was successful!");
+            page.setViewName("reservations");
+            return page;
         }
         else
         {
-            model.addAttribute("loginSuccessful", "Error while making the reservation! Please try again later!");
-            return "reservations";
+            page.addObject("loginSuccessful", "Error while making the reservation! Please try again later!");
+            page.setViewName("reservations");
+            return page;
         }
     }
 }

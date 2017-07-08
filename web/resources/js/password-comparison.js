@@ -30,11 +30,21 @@ function checkPass(input)
     }
 }
 
+$(document).ready(function(){
+    var updateCar = function () {
+        var parentSelect = $('#changeCar');
+        $('#carType').val(parentSelect.find(':selected').attr('car-type'));
+        $('#gearBox').val(parentSelect.find(':selected').attr('gear-box'));
+        $(".selectedCarImage").attr("src","/resources/images/banner" + parentSelect.find(':selected').attr('car-img') + ".jpg");
+        $(".selectedCarDesc").html(parentSelect.find(':selected').attr('car-desc'));
+    };
+    $('#changeCar').on('change', function() {
+        updateCar();
+    });
+    updateCar();
+});
 
-$('#changeCar').on('change', function() {
-    $('#carType').val($(this).find(':selected').attr('car-type'));
-    $('#gearBox').val($(this).find(':selected').attr('gear-box'));
-})
+
 
 // $('#selectAgency').on('change', function() {
 //     $('#branchAgency').val($(this).find(':selected').attr('branch-agency'));

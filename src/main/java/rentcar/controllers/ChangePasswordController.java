@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,27 +26,32 @@ public class ChangePasswordController {
     CustomerFullDetailsFacade customerFullDetailsFacade;
 
     @RequestMapping(value="/changepassword" , method = RequestMethod.GET)
-    public String getChangePassword(Model model, HttpSession httpSession)
+    public ModelAndView getChangePassword(HttpSession httpSession)
     {
-        if ((httpSession.getAttribute("customer") == null) && (httpSession.getAttribute("customeraddress") == null))
+        ModelAndView page = new ModelAndView();
+        if ((httpSession.getAttribute("customer") == null) && (httpSession.getAttribute("customerAddress") == null))
         {
-            model.addAttribute("loginSuccessful", "Please login or create a user in order to access the account page");
-            return "login";
+            page.addObject("loginSuccessful", "Please login or create a user in order to access the account page");
+            page.setViewName("login");
+            return page;
         }
         else
         {
-            model.addAttribute("customer",  new CustomerDataDTO());
-            return "changepassword";
+            page.addObject("customer",  new CustomerDataDTO());
+            page.setViewName("changepassword");
+            return page;
         }
     }
 
     @RequestMapping(value="/changepassword" , method = RequestMethod.POST)
-    public String postLogin(@ModelAttribute("changePasswordModelAttribute") CustomerDataDTO customerDataDTO, HttpSession httpSession, Model model)
+    public ModelAndView postLogin(@ModelAttribute("changePasswordModelAttribute") CustomerDataDTO customerDataDTO, HttpSession httpSession)
     {
+        ModelAndView page = new ModelAndView();
         CustomerData customerData = (CustomerData) httpSession.getAttribute("customer");
         customerFullDetailsFacade.updateCustomerDataPassword(customerDataDTO, customerData);
 
-        model.addAttribute("loginSuccessful", "Password has been changed successfuly!");
-        return "changepassword";
+        page.addObject("loginSuccessful", "Password has been changed successfuly!");
+        page.setViewName("changepassword");
+        return page;
     }
 }

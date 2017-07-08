@@ -106,32 +106,11 @@
                                                         <%--</c:forEach>--%>
                                                     <%--];--%>
 
-
-
-                                                    addMarker({
-                                                        coords:{lat: ${allBranches.get(0).latitude}, lng: ${allBranches.get(0).longitude}},
-                                                        content:'<h6>${allBranches.get(0).name}</h6>'});
-
-                                                    addMarker({
-                                                        coords:{lat: ${allBranches.get(1).latitude}, lng: ${allBranches.get(1).longitude}},
-                                                        content:'<h6>${allBranches.get(1).name}</h6>'});
-
-                                                    addMarker({
-                                                        coords:{lat: ${allBranches.get(2).latitude}, lng: ${allBranches.get(2).longitude}},
-                                                        content:'<h6>${allBranches.get(2).name}</h6>'});
-
-                                                    addMarker({
-                                                        coords:{lat: ${allBranches.get(3).latitude}, lng: ${allBranches.get(3).longitude}},
-                                                        content:'<h6>${allBranches.get(3).name}</h6>'});
-
-                                                    addMarker({
-                                                        coords:{lat: ${allBranches.get(4).latitude}, lng: ${allBranches.get(4).longitude}},
-                                                        content:'<h6>${allBranches.get(4).name}</h6>'});
-
-                                                    addMarker({
-                                                        coords:{lat: ${allBranches.get(5).latitude}, lng: ${allBranches.get(5).longitude}},
-                                                        content:'<h6>${allBranches.get(5).name}</h6>'});
-
+                                                    <c:forEach items="${allBranches}" var="item">
+                                                        addMarker({
+                                                            coords:{lat: ${item.latitude}, lng: ${item.longitude}},
+                                                            content:'<h6>${item.name}</h6>'});
+                                                    </c:forEach>
                                                     var currWindow = false;
 
                                                     function addMarker(props){
